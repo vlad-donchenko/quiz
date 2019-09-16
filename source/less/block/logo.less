@@ -1,0 +1,95 @@
+@import "../global/variables";
+
+.logo__img {
+  display: block;
+  width: 71px;
+  height: 81px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo__description {
+  font-weight: 600;
+  font-size: @base-font-size - 1px;
+  line-height: @base-line-height;
+  text-align: center;
+}
+
+.logo--home .logo__img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo--home .logo__description {
+  width: 260px;
+  margin: 10px auto 0 auto;
+}
+
+.logo--home {
+  margin-bottom: 33px;
+}
+
+@media (min-width: @iphone-x) {
+  .logo--home .logo__img {
+    margin-left: 35%;
+    margin-right: 0;
+  }
+
+  .logo__description {
+    font-weight: 600;
+    font-size: @base-font-size - 1px;
+    line-height: @base-line-height;
+    text-align: center;
+  }
+
+  .logo--home .logo__description {
+    width: 260px;
+    margin: 10px 0 0 12%;
+  }
+
+  .logo--home {
+    margin-bottom: 53px;
+  }
+}
+
+@media (min-width: @large-phone) {
+  .logo--home .logo__img,
+  .logo--home .logo__description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: @tablet) {
+  .logo--home {
+    display: flex;
+    align-items: center;
+    width: 377px;
+  }
+
+  .logo--home .logo__description {
+    position: relative;
+    width: 245px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-left: auto;
+    text-align: left;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      width: 2px;
+      height: 80px;
+      background-color: rgba(@white-color, 0.7);
+      transform: translateY(-50%);
+    }
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .logo--home {
+    order: -5;
+  }
+}

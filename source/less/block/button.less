@@ -1,0 +1,118 @@
+@import "../global/variables";
+
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 19px 5% 17px 5%;
+  text-align: center;
+  color: @white-color;
+  font-size: @base-font-size - 1px;
+  line-height: @base-line-height;
+  text-decoration: none;
+  background-color: @blue-color;
+  border-radius: 5px;
+  transition: all @animation-time @animation-timing-function;
+
+  &:focus {
+    box-shadow: 0 0 0 5px rgba(@blue-darken-color, 0.7);
+    outline: none;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.button--present {
+  padding: 5px;
+  width: 60px;
+  height: 60px;
+  background-color: rgb(@black-color, 0.35);
+
+  &:focus {
+    box-shadow: 0 0 0 5px rgba(@black-color, 0.5);
+  }
+}
+
+.button--present svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button-calculate {
+  flex-grow: 1;
+  margin-right: 15px;
+  padding-left: 10%;
+  padding-right: 3%;
+}
+
+.button-calculate svg {
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button--glare {
+  overflow: hidden;
+}
+
+.button--glare::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  display: block;
+  height: 100%;
+  width: 24px;
+  background-color: rgba(@white-color, 0.4);
+  transform: translateX(-100%) skew(-25deg);
+  animation-name: glare;
+  animation-duration: @animation-time + 1;
+  animation-timing-function: @animation-timing-function;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glare {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: calc(100% + 60px);
+  }
+}
+
+@media (min-width: @iphone-x) {
+  .button {
+    font-size: @base-font-size;
+  }
+
+  .button-calculate {
+    padding-left: 14%;
+    padding-right: 5%;
+  }
+
+  .button-calculate svg {
+    left: 24px;
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .button:hover {
+    background-color: lighten(@blue-color, 5%);
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .button--present:hover {
+    background-color: rgba(@black-color, 0.6);
+  }
+
+  .button--present:focus {
+    background-color: @black-color;
+  }
+}

@@ -1,0 +1,47 @@
+@import "../global/variables";
+
+.container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: @horizontal-phone) {
+  .container {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: @tablet) {
+  .container {
+    max-width: 768px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .container {
+    max-width: 991px;
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: @laptop-l) {
+  .container {
+    max-width: 1390px;
+  }
+}
+
+@media (min-width: @desktop) {
+  .container {
+    max-width: 1691px;
+  }
+}

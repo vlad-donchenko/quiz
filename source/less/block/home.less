@@ -1,0 +1,165 @@
+@import "../global/variables";
+
+.home {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  color: @white-color;
+  background-color: @black-color;
+  background-image: url("../img/main-background.jpg");
+  background-size: cover;
+  z-index: 1;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(@black-color, 0.45);
+    z-index: -1;
+  }
+}
+
+.home__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.home__text {
+  margin-top: 25px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: @base-font-size;
+}
+
+.home__action {
+  display: flex;
+}
+
+.home__top {
+  flex-grow: 1;
+}
+
+.home__bottom {
+  margin-top: 30px;
+}
+
+@media (min-width: @iphone-x) {
+  .home__text {
+    margin-top: 27px;
+    margin-bottom: 32px;
+    text-align: center;
+    font-size: @base-font-size + 3px;
+  }
+}
+
+@media (min-width: @tablet) {
+  .home__bottom {
+    margin-top: 70px;
+  }
+
+  .home__top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+
+  .home__action {
+    width: 100%;
+  }
+
+  .home__text {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+
+  .home {
+    background-image: url("../img/main-background-desctop.jpg");
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .home__inner {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .home__action {
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home__text {
+    margin-bottom: 100px;
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .home__info-block {
+    max-width: 650px;
+    order: -3;
+  }
+
+  .home__action {
+    margin-top: 40px;
+    max-width: 354px;
+    margin-left: 0;
+  }
+
+  .home__text {
+    margin-top: 70px;
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .home__bottom {
+    position: absolute;
+    top: 50px;
+    right: 326px;
+    margin: 0;
+    width: 290px;
+  }
+}
+
+@media (min-width: @laptop-l) {
+  .home__info-block {
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .home__bottom {
+    width: 485px;
+  }
+}
+
+@media (min-width: @desktop) {
+  .home__info-block {
+    max-width: 1030px;
+    margin-top: 126px;
+    padding-bottom: 70px;
+  }
+
+  .home__bottom {
+    right: 374px;
+  }
+
+  .home__text {
+    margin-top: 27px;
+    font-size: @base-font-size + 7px;
+  }
+
+  .home__action {
+    position: relative;
+    top: -33px;
+    margin-top: 0;
+  }
+}

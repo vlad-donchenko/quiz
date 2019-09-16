@@ -1,0 +1,73 @@
+@import "../global/variables";
+
+.contacts {
+  display: none;
+  width: 214px;
+  margin-left: auto;
+}
+
+.contacts__text {
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 21px;
+  font-size: @base-font-size - 1px;
+}
+
+.contacts__link {
+  color: @white-color;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color @animation-time @animation-timing-function;
+
+  &:focus {
+    color: rgba(@white-color, 0.3);
+  }
+}
+
+.contacts__call-back {
+  margin-top: 6px;
+  color: @white-color;
+  font-size: @base-font-size;
+  text-decoration: underline;
+  transition: color @animation-time @animation-timing-function;
+
+  &:focus {
+    color: rgba(@white-color, 0.3);
+  }
+}
+
+@media (min-width: @tablet) {
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .contacts {
+    order: -4;
+  }
+
+  .contacts__call-back:hover,
+  .contacts__link:hover {
+    color: rgba(@white-color, 0.6);
+  }
+
+  .contacts__call-back:hover,
+  .contacts__link:focus {
+    color: rgba(@white-color, 0.3);
+  }
+}
+
+@media (min-width: @desktop) {
+  .contacts__text {
+    margin-bottom: 10px;
+  }
+
+  .contacts__call-back {
+    margin-top: 9px;
+    font-size: @base-font-size - 1px;
+  }
+}
+

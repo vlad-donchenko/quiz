@@ -1,0 +1,86 @@
+@import "../global/variables";
+
+.h1 {
+  font-weight: 600;
+  font-size: @base-font-size + 7px;
+  letter-spacing: -0.2px;
+}
+
+.h1--home {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 0 auto;
+  line-height: @base-line-height;
+  text-align: center;
+
+  &::after {
+    content: " ";
+    display: block;
+    width: 32%;
+    height: 3px;
+    background-color: @white-color;
+    margin: 30px auto 0 auto;
+  }
+}
+
+@media (min-width: @iphone-x) {
+  .h1 {
+    font-weight: 600;
+    font-size: @base-font-size * 2;
+    letter-spacing: -0.2px;
+  }
+
+  .h1--home {
+    width: 96%;
+    margin: 0 auto 0 1%;
+    line-height: 43px;
+  }
+}
+
+@media (min-width: @large-phone) {
+  .h1--home {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: @horizontal-phone) {
+  .h1 {
+    font-size: @base-font-size * 3;
+    line-height: @base-line-height;
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .h1--home {
+    margin-top: 100px;
+    font-size: @base-font-size * 4;
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .h1--home {
+    width: auto;
+    margin-top: 50px;
+    font-size: @base-font-size * 2.5;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+
+    &::after {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (min-width: @desktop) {
+  .h1--home {
+    margin-top: 0;
+    font-size: @base-font-size * 3 + 5px;
+    letter-spacing: normal;
+
+    &::after {
+      width: 100px;
+    }
+  }
+}

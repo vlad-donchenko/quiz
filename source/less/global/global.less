@@ -1,0 +1,35 @@
+@import "variables";
+
+html {
+  display: flex;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+
+  *::after {
+    box-sizing: inherit;
+  }
+
+  *::before {
+    box-sizing: inherit;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  min-width: 320px;
+  margin: 0;
+  font-family: @base-font-family;
+  line-height: @base-line-height;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
