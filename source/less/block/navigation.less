@@ -1,0 +1,118 @@
+@import "../global/variables";
+
+.navigation {
+  flex: 0 0 auto;
+  margin-top: 95px;
+  padding: 20px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.navigation__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation__button--next {
+  padding-left: 98px;
+  padding-right: 66px;
+  font-size: @base-font-size + 1px;
+}
+
+.navigation__button--prev {
+  background-color: @white-color;
+  color: @black-color;
+  box-shadow: 0 0 6px rgba(@black-color, 0.16);
+
+  &:focus {
+    box-shadow: 0 0 0 5px #dee2e6;
+  }
+}
+
+.navigation__button--next svg {
+  position: absolute;
+  left: 67px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navigation__button {
+  padding-top: 14px;
+  padding-bottom: 11px;
+}
+
+@media (max-width: @laptop-s) {
+  .navigation__button--prev span {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+  }
+
+  .navigation__button--prev {
+    width: 50px;
+  }
+
+  .navigation__button--prev svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: @tablet) {
+  .navigation {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .navigation {
+    margin-top: 51px;
+    padding-right: 25px;
+    padding-left: 25px;
+    width: calc(100% - 280px);
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .navigation__button--prev {
+    width: auto;
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  .navigation__buttons {
+    justify-content: flex-start;
+    margin-left: auto;
+  }
+
+  .navigation__button--next svg,
+  .navigation__button--prev svg {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .navigation__button {
+    padding-left: 62px;
+    padding-right: 31px;
+  }
+
+  .navigation {
+    position: absolute;
+    bottom: 0;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (min-width: @laptop-l) {
+  .navigation {
+    padding: 31px 50px;
+  }
+}

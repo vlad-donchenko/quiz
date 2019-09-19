@@ -1,0 +1,99 @@
+@import "../global/variables";
+
+.progress-bar__line {
+  position: relative;
+  height: 3px;
+  background-color: #e3e3e3;
+}
+
+.progress-bar__indicator {
+  height: 3px;
+  width: 20%;
+  background-color: #185cfb;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-size: 50px 50px;
+    overflow: hidden;
+    animation: move 2s linear infinite;
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));
+  }
+}
+
+.progress-bar--in-content {
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+.progress-bar__text {
+  display: none;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+@media (min-width: @tablet) {
+  .progress-bar--in-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .progress-bar__text {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: @base-font-size - 1px;
+  }
+
+  .progress-bar__count {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+    padding-right: 15px;
+    font-weight: 600;
+    color: @blue-color;
+
+    &::after {
+      content: "%";
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .progress-bar--in-content {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    width: 400px;
+  }
+
+  .progress-bar__indicator,
+  .progress-bar__line {
+    height: 5px;
+  }
+
+  .progress-bar__text {
+    margin-bottom: 25px;
+  }
+}

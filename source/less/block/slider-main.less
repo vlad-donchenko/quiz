@@ -1,0 +1,46 @@
+@import "../global/variables";
+
+.slider-main {
+  padding: 0 25px;
+}
+
+.slider-main__item {
+  display: none;
+}
+
+.slider-main__item--active {
+  display: block;
+  animation-name: fadein;
+  animation-duration: @animation-time + 0.2s;
+  animation-timing-function: @animation-timing-function;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: @tablet) {
+  .slider-main {
+    padding: 0 50px;
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .slider-main {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+@media (min-width: @laptop-l) {
+  .slider-main {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}

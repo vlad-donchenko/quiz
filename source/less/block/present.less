@@ -1,0 +1,65 @@
+@import "../global/variables";
+
+.present {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.present__banner {
+  position: relative;
+  width: 228px;
+  padding: 18px 17px 17px 88px;
+  border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(@black-color, 0.35);
+    border-radius: 5px;
+    z-index: -1;
+  }
+}
+
+.present__text {
+  margin: 0;
+  text-align: right;
+  color: @white-color;
+  font-size: @base-font-size - 1px;
+  line-height: 23px;
+  font-weight: 600;
+}
+
+.present__item {
+  margin-bottom: 33px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.present-status {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 36px;
+  height: 36px;
+  background-color: @blue-color;
+  border-radius: 50%;
+  border: 4px solid @white-color;
+  box-shadow: 0 3px 6px rgba(@black-color, 0.16);
+}
+
+.present-status svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

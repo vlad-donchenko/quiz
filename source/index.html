@@ -7,6 +7,7 @@
   <link rel="preload" href="fonts/segoeui.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="fonts/segoeui-semibold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="less/block/quiz.less">
 </head>
 <body>
 <div style="display: none">
@@ -61,7 +62,7 @@
             Перед началом работ подписуем договор
           </li>
           <li class="advantage__item">
-            Поэтапная оплата только после того, как вы примите  часть выполненной работы
+            Поэтапная оплата только после того, как вы примите часть выполненной работы
           </li>
           <li class="advantage__item">
             Предоставляем бесплатно хостинг и домен на 1 год
@@ -103,6 +104,170 @@
               </a>
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="quiz">
+    <div class="quiz__inner">
+      <button type="button" class="quiz__close" aria-label="Закрыть окно"></button>
+      <div class="quiz__inner__left">
+        <div class="quiz__top">
+          <h2 class="visually-hidden">
+            Викторина
+          </h2>
+          <p class="quiz__promo">
+            <svg width="25" height="22">
+              <use xlink:href="#icon-todo-list"></use>
+            </svg>
+            Узнай в 5 кликов стоимость
+            и сроки разработки своего сайта
+          </p>
+          <div class="progress-bar progress-bar--in-content">
+            <p class="progress-bar__text">
+              Готово:
+              <span class="progress-bar__count">
+                  20
+                </span>
+            </p>
+            <div class="progress-bar__line">
+              <div class="progress-bar__indicator"></div>
+            </div>
+          </div>
+          <div class="quiz__change-content">
+            <p class="quiz__headline">
+              Какой Вам нужен сайт?
+            </p>
+            <div class="manager">
+              <div class="manager__inner">
+                <div class="manager__img">
+                  <picture>
+                    <source media="(min-width: 768px)" srcset="img/manager-desktop.jpg">
+                    <img src="img/manager.jpg" width="44" height="44" alt="Сергей">
+                  </picture>
+                </div>
+                <div class="manager__content">
+                  <div class="manager__info">
+                    <p class="manager__name manager__name--online">
+                      Сергей
+                    </p>
+                    <p class="manager__position">
+                      Менеджер проектов
+                    </p>
+                  </div>
+                  <div class="manager__text">
+                    <p>
+                      Этот этап очень важен, нужно понять какие у Вас цели продать или рассказать о себе.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="manager__toggle">
+                <svg width="15" height="8">
+                  <use xlink:href="#icon-manager-arrow"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form method="post" action="quiz.php">
+          <div class="slider-main">
+            <div class="slider-main__item slider-main__item--active">
+              <ul class="options">
+                <li class="options__item">
+                  <input type="radio" name="what-site" class="visually-hidden options__radio" id="selling">
+                  <label for="selling" class="options__content options__content--radio">
+                    Продающий
+                  </label>
+                </li>
+                <li class="options__item">
+                  <input type="radio" name="what-site" class="visually-hidden options__radio" id="informational">
+                  <label for="informational" class="options__content options__content--radio">
+                    Информационный
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="slider-main__item">
+              <ul class="options">
+                <li class="options__item">
+                  <input type="checkbox" name="what-site-1" class="visually-hidden options__checkbox" value="selling-1"
+                         id="selling-1">
+                  <label for="selling-1" class="options__content options__content--checkbox">
+                    Продающий
+                  </label>
+                </li>
+                <li class="options__item">
+                  <input type="checkbox" name="what-site-1" class="visually-hidden options__checkbox" value="selling-2"
+                         id="selling-2">
+                  <label for="selling-2" class="options__content options__content--checkbox">
+                    Продающий
+                  </label>
+                </li>
+                <li class="options__item options__item--text-field">
+                  <input type="checkbox" name="what-site-1" class="visually-hidden options__checkbox" id="selling-3">
+                  <label for="selling-3" class="options__content options__content--checkbox">
+                  <span class="visually-hidden">
+                    Продающий
+                  </span>
+                  </label>
+                  <input type="text" id="selling-text-1" class="options__content options__content--text-field"
+                         placeholder="Другое...">
+                  <label for="selling-text-1" class="visually-hidden">
+                    Другое
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="quiz__inner__right">
+        <ul class="present">
+          <li class="present__item">
+            <div class="present__banner" style="background-image: url('img/banner-1.png')">
+              <p class="present__text">
+                Хостинг на 1 год бесплатно
+              </p>
+              <div class="present-status">
+                <svg width="12" height="16">
+                  <use xlink:href="#icon-lock"></use>
+                </svg>
+              </div>
+            </div>
+          </li>
+          <li class="present__item">
+            <div class="present__banner" style="background-image: url('img/banner-2.png')">
+              <p class="present__text">
+                Домен на 1 год бесплатно
+              </p>
+              <div class="present-status">
+                <svg width="12" height="16">
+                  <use xlink:href="#icon-lock"></use>
+                </svg>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="navigation">
+        <div class="navigation__buttons">
+          <button type="button" class="navigation__button navigation__button--prev button">
+            <svg width="18" height="11">
+              <use xlink:href="#icon-arrow-prev"></use>
+            </svg>
+            <span>
+              Назад
+            </span>
+          </button>
+          <button type="button" class="navigation__button navigation__button--next button">
+            <svg width="17" height="15">
+              <use xlink:href="#icon-checked-button"></use>
+            </svg>
+            <span>
+              Далее
+            </span>
+          </button>
         </div>
       </div>
     </div>
