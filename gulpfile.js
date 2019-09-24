@@ -87,7 +87,13 @@ gulp.task("html", function () {
 });
 
 gulp.task("js-minify", function () {
-  return gulp.src("source/js/*.js")
+  return gulp.src([
+    "source/libs/jq/jquery-3.3.1.min.js",
+    "source/libs/mask/mask.js",
+    "source/libs/picturefill/picture-fill.min.js",
+    "source/libs/slick/slick.min.js",
+    "source/js/*.js"
+  ])
     .pipe(concat("scripts.min.js"))
     .pipe(jsmin())
     .pipe(gulp.dest("build/js"))

@@ -8,10 +8,11 @@
 
 .progress-bar__indicator {
   height: 3px;
-  width: 20%;
   background-color: #185cfb;
   position: relative;
   overflow: hidden;
+  width: 0;
+  transition: width @animation-time @animation-timing-function;
 
   &::after {
     content: " ";
@@ -63,6 +64,11 @@
     font-size: @base-font-size - 1px;
   }
 
+  .progress-bar__indicator,
+  .progress-bar__line {
+    height: 5px;
+  }
+
   .progress-bar__count {
     position: relative;
     display: inline-block;
@@ -88,12 +94,33 @@
     width: 400px;
   }
 
-  .progress-bar__indicator,
+  .progress-bar__text {
+    margin-bottom: 25px;
+  }
+}
+
+@media (min-width: @laptop-l) {
+  .progress-bar--in-content {
+    bottom: 44px;
+    left: 50px;
+    width: 675px;
+    display: flex;
+    align-items: center;
+  }
+
   .progress-bar__line {
-    height: 5px;
+    width: 545px;
+    margin-left: auto;
   }
 
   .progress-bar__text {
-    margin-bottom: 25px;
+    width: 115px;
+    margin-right: 13px;
+    margin-bottom: 0;
+    color: #707070;
+  }
+
+  .progress-bar__count {
+    margin-left: 13px;
   }
 }

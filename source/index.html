@@ -7,7 +7,6 @@
   <link rel="preload" href="fonts/segoeui.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="fonts/segoeui-semibold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
-  <link rel="stylesheet" href="less/block/quiz.less">
 </head>
 <body>
 <div style="display: none">
@@ -127,7 +126,7 @@
             <p class="progress-bar__text">
               Готово:
               <span class="progress-bar__count">
-                  20
+                  0
                 </span>
             </p>
             <div class="progress-bar__line">
@@ -172,7 +171,7 @@
         </div>
         <form method="post" action="quiz.php">
           <div class="slider-main">
-            <div class="slider-main__item slider-main__item--active">
+            <div class="slider-main__item">
               <ul class="options">
                 <li class="options__item">
                   <input type="radio" name="what-site" class="visually-hidden options__radio" id="selling">
@@ -204,21 +203,168 @@
                     Продающий
                   </label>
                 </li>
-                <li class="options__item options__item--text-field">
-                  <input type="checkbox" name="what-site-1" class="visually-hidden options__checkbox" id="selling-3">
+              </ul>
+            </div>
+            <div class="slider-main__item">
+              <ul class="options">
+                <li class="options__item">
+                  <input type="checkbox" name="what-site-2" class="visually-hidden options__checkbox" value="selling-3"
+                         id="selling-3">
                   <label for="selling-3" class="options__content options__content--checkbox">
+                    Продающий
+                  </label>
+                </li>
+                <li class="options__item">
+                  <input type="checkbox" name="what-site-2" class="visually-hidden options__checkbox" value="selling-4"
+                         id="selling-4">
+                  <label for="selling-4" class="options__content options__content--checkbox">
+                    Продающий
+                  </label>
+                </li>
+                <li class="options__item options__item--text-field">
+                  <input type="checkbox" name="what-site-2" class="visually-hidden options__checkbox" id="selling-5" disabled>
+                  <label for="selling-5" class="options__content options__content--checkbox">
                   <span class="visually-hidden">
                     Продающий
                   </span>
                   </label>
-                  <input type="text" id="selling-text-1" class="options__content options__content--text-field"
-                         placeholder="Другое...">
+                  <input type="text" name="what-site-2" id="selling-text-1" class="options__content options__content--text-field" placeholder="Другое...">
                   <label for="selling-text-1" class="visually-hidden">
                     Другое
                   </label>
                 </li>
               </ul>
             </div>
+            <div class="slider-main__item">
+              <div class="picture-quiz picture-quiz--checkbox">
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-1" class="visually-hidden options__checkbox" value="picture-1" id="picture-1">
+                  <label for="picture-1" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    <span>
+                      Продающий
+                    </span>
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-2" class="visually-hidden options__checkbox" value="picture-2" id="picture-2">
+                  <label for="picture-2" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-3" class="visually-hidden options__checkbox" value="picture-2" id="picture-3">
+                  <label for="picture-3" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-4" class="visually-hidden options__checkbox" value="picture-2" id="picture-4">
+                  <label for="picture-4" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <!--Next sliders-->
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-1" class="visually-hidden options__checkbox" value="picture-1" id="picture-5">
+                  <label for="picture-5" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-2" class="visually-hidden options__checkbox" value="picture-2" id="picture-6">
+                  <label for="picture-6" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-3" class="visually-hidden options__checkbox" value="picture-2" id="picture-7">
+                  <label for="picture-7" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-4" class="visually-hidden options__checkbox" value="picture-2" id="picture-8">
+                  <label for="picture-8" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+              </div>
+              <button type="button" class="picture-quiz__arrow picture-quiz__arrow--prev" aria-label="Назад"></button>
+              <button type="button" class="picture-quiz__arrow picture-quiz__arrow--next"  aria-label="Вперед"></button>
+            </div>
+            <!-- Checkbox picture slider Start-->
+            <div class="slider-main__item">
+              <div class="picture-quiz picture-quiz--checkbox">
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-1" class="visually-hidden options__checkbox" value="picture-1" id="picture-9">
+                  <label for="picture-9" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-2" class="visually-hidden options__checkbox" value="picture-2" id="picture-10">
+                  <label for="picture-10" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-3" class="visually-hidden options__checkbox" value="picture-2" id="picture-11">
+                  <label for="picture-11" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-4" class="visually-hidden options__checkbox" value="picture-2" id="picture-12">
+                  <label for="picture-12" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <!--Next sliders-->
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-1" class="visually-hidden options__checkbox" value="picture-1" id="picture-13">
+                  <label for="picture-13" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-2" class="visually-hidden options__checkbox" value="picture-2" id="picture-14">
+                  <label for="picture-14" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-3" class="visually-hidden options__checkbox" value="picture-2" id="picture-15">
+                  <label for="picture-15" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+                <div class="picture-quiz__item">
+                  <input type="checkbox" name="picture-4" class="visually-hidden options__checkbox" value="picture-2" id="picture-16">
+                  <label for="picture-16" class="options__content options__content--checkbox">
+                    <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
+                    Продающий
+                  </label>
+                </div>
+              </div>
+              <button type="button" class="picture-quiz__arrow picture-quiz__arrow--prev" aria-label="Назад"></button>
+              <button type="button" class="picture-quiz__arrow picture-quiz__arrow--next"  aria-label="Вперед"></button>
+            </div>
+            <!-- Checkbox picture slider End-->
           </div>
         </form>
       </div>

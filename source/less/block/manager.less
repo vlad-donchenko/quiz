@@ -118,7 +118,7 @@
 
 @media (min-width: @tablet) {
   .manager__img {
-    width: 88px;
+    width: 80px;
   }
 
   .manager__content {
@@ -126,8 +126,8 @@
   }
 
   .manager__img img {
-    width: 88px;
-    height: 88px;
+    width: 80px;
+    height: 80px;
   }
 
   .manager__inner {
@@ -202,11 +202,6 @@
     width: 100%;
   }
 
-  .manager__img img {
-    width: 88px;
-    height: 88px;
-  }
-
   .manager__text {
     position: relative;
     width: 100%;
@@ -241,5 +236,27 @@
 
   .manager__text p {
     font-size: @base-font-size - 2px;
+  }
+}
+
+@media (min-width: @laptop-l) {
+  .manager {
+    top: 100px;
+    right: 51px;
+    max-width: 354px;
+  }
+
+  .manager__info {
+    right: initial;
+    left: 110px;
+  }
+
+  .manager__text p {
+    font-size: @base-font-size - 1px;
+  }
+
+  .manager__text {
+    margin-top: 8px;
+    padding: 18px 20px;
   }
 }
