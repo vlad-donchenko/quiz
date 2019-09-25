@@ -63,14 +63,49 @@ pictureQuiz.each(function () {
     }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
       return false;
     });
-  } else if ($(this).is(".type-two-carousel")) {
+  } else if ($(this).is(".picture-quiz--radio")) {
     $(this).slick({
-      dots: true,
-      infinite: true,
-      slidesToShow: 6
+      dots: false,
+      infinite: false,
+      swipe: true,
+      slidesToScroll: 4,
+      slidesToShow: 4,
+      speed: 700,
+      prevArrow: $(this).parent().find('.picture-quiz__arrow--prev'),
+      nextArrow: $(this).parent().find('.picture-quiz__arrow--next'),
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 540,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+      return false;
     });
-  } else {
-    $(this).slick();
   }
 });
 
@@ -83,6 +118,11 @@ $('.button-calculate').on('click', function () {
 
 quizSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
   var calc = Math.floor(((nextSlide) / (slick.slideCount - 1)) * 100);
+
+  if (nextSlide === slick.slideCount - 1) {
+    console.log('Последний слайд');
+    calc =  calc - (calc / 100 * 5);
+  }
 
   progressBarLine.css('width', calc + '%');
   progressBarText.text(calc);
@@ -135,8 +175,18 @@ $('.input-wrap__content--text-field').on('input', function () {
   } else {
     $(this).closest('.input-wrap--text-field').find('.input-wrap__input').prop("checked", false);
     $(this).removeClass('input-wrap__content--text-checked');
-    $('.navigation__button--next').attr('disabled', 'disabled');
-    $('.navigation__button--next').removeClass('button--glare');
+
+    if ($(this).val() === '' && $(this).closest('.slick-active').find('.input-wrap__checkbox').is(':checked')) {
+      return false
+    } else {
+      $('.navigation__button--next').attr('disabled', 'disabled');
+      $('.navigation__button--next').removeClass('button--glare');
+    }
+
+    if ($(this).closest('.input-wrap--text-field').find('.input-wrap__radio')) {
+      $('.navigation__button--next').attr('disabled', 'disabled');
+      $('.navigation__button--next').removeClass('button--glare');
+    }
   }
 });
 
@@ -158,9 +208,24 @@ $('.input-wrap__radio').on('change', function () {
     $('.navigation__button--next').addClass('button--glare');
     $(this).closest('.slick-active').find('.input-wrap__content--text-field').removeClass('input-wrap__content--text-checked');
     $(this).closest('.slick-active').find('.input-wrap__content--text-field').val('');
-    quizSlider.slick('slickNext');
+
+    setTimeout("quizSlider.slick('slickNext')", 800);
   } else {
     addDisabled(mainSliderNext, 'button--glare');
+  }
+});
+
+$(window).resize(function() {
+  if ($(window).width() < 768) {
+    if ($('.manager__text').height() > 20) {
+      console.log($('.manager__text').height());
+      $('.manager__toggle').on('click', function () {
+        $('.manager').toggleClass('manager--show');
+      });
+    }
+  } else {
+    $('.manager__inner').removeClass('manager--show');
+    $('.manager__toggle').hide();
   }
 });
 
