@@ -19,54 +19,69 @@ quizSlider.slick({
   nextArrow: $('.navigation__button--next'),
 });
 
-/*
-pictureQuiz.slick({
-  dots: false,
-  infinite: false,
-  swipe: true,
-  speed: 300,
-  slidesToShow: 4,
-});
-*/
-
-
-pictureQuiz.each(function() {
+pictureQuiz.each(function () {
   if ($(this).is(".picture-quiz--checkbox")) {
     $(this).slick({
       dots: false,
       infinite: false,
       swipe: true,
-      speed: 300,
+      slidesToScroll: 4,
       slidesToShow: 4,
+      speed: 700,
       prevArrow: $(this).parent().find('.picture-quiz__arrow--prev'),
-      nextArrow: $(this).parent().find('.picture-quiz__arrow--next')
+      nextArrow: $(this).parent().find('.picture-quiz__arrow--next'),
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 540,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
       return false;
     });
-  }
-  else if ($(this).is(".type-two-carousel")){
+  } else if ($(this).is(".type-two-carousel")) {
     $(this).slick({
       dots: true,
       infinite: true,
       slidesToShow: 6
     });
-  }
-  else {
+  } else {
     $(this).slick();
   }
 });
-
 
 $('.button-calculate').on('click', function () {
   $('.quiz').removeClass('quiz--hidden');
   $('.quiz').addClass('quiz--open');
   $('body').addClass('body--overflow');
   quizSlider.resize();
-  /*pictureQuiz.resize();*/
 });
 
 quizSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-  console.log(slick);
   var calc = Math.floor(((nextSlide) / (slick.slideCount - 1)) * 100);
 
   progressBarLine.css('width', calc + '%');
@@ -102,40 +117,50 @@ addDisabled(mainSliderNext, 'button--glare');
 quizSlider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
   if ($('.slider-main .slick-active input').is(':checked')) {
     $('.navigation__button--next').removeAttr('disabled');
+    $('.navigation__button--next').addClass('button--glare');
+  } else {
+    $('.navigation__button--next').attr('disabled', 'disabled');
+    $('.navigation__button--next').removeClass('button--glare');
+  }
+});
+
+$('.input-wrap__content--text-field').on('input', function () {
+  if ($(this).val()) {
+    if ($(this).closest('.input-wrap--text-field').find('.input-wrap__input')) {
+      $(this).closest('.input-wrap--text-field').find('.input-wrap__input').prop("checked", true);
+      $(this).addClass('input-wrap__content--text-checked');
+      $('.navigation__button--next').removeAttr('disabled');
+      $('.navigation__button--next').addClass('button--glare');
+    }
+  } else {
+    $(this).closest('.input-wrap--text-field').find('.input-wrap__input').prop("checked", false);
+    $(this).removeClass('input-wrap__content--text-checked');
+    $('.navigation__button--next').attr('disabled', 'disabled');
+    $('.navigation__button--next').removeClass('button--glare');
+  }
+});
+
+$('.input-wrap__checkbox').on('change', function () {
+  if ($(this).closest('.slick-active').find('.input-wrap__checkbox').is(':checked')) {
+    $('.navigation__button--next').removeAttr('disabled');
+    $('.navigation__button--next').addClass('button--glare');
+  } else {
+    $('.navigation__button--next').attr('disabled', 'disabled');
+    $('.navigation__button--next').removeClass('button--glare');
+  }
+});
+
+$('.input-wrap__radio').on('change', function () {
+  console.log('Radio was change');
+  if ($(this).is(':checked')) {
+    console.log('бУДЕТ ПЕРЕХОД АВТО');
+    $('.navigation__button--next').removeAttr('disabled');
+    $('.navigation__button--next').addClass('button--glare');
+    $(this).closest('.slick-active').find('.input-wrap__content--text-field').removeClass('input-wrap__content--text-checked');
+    $(this).closest('.slick-active').find('.input-wrap__content--text-field').val('');
+    quizSlider.slick('slickNext');
   } else {
     addDisabled(mainSliderNext, 'button--glare');
-  }
-});
-
-$('.slider-main .slick-active input').on('change', function () {
-  console.log('Сработало собитие на изменения');
-  if ($('.options__radio').is(':checked')) {
-    quizSlider.slick('slickNext');
-    $('.navigation__button--next').removeAttr('disabled');
-  }
-  addDisabled(mainSliderNext, 'button--glare');
-});
-
-$('.options__content--text-field').on('input', function () {
-  console.log($(this).val());
-  if ($(this).val()) {
-    $(this).closest('.options__item--text-field').find('.options__checkbox').prop("checked", true);
-    $(this).addClass('options__content--text-checked');
-    $('.navigation__button--next').removeAttr('disabled');
-  } else {
-    $(this).closest('.options__item--text-field').find('.options__checkbox').prop("checked", false);
-    $(this).removeClass('options__content--text-checked');
-    $('.navigation__button--next').attr('disabled', 'disabled');
-  }
-});
-
-$('.options__checkbox').on('change', function () {
-  if ($(this).closest('.slick-active').find('.options__checkbox').is(':checked')) {
-    console.log('options__checkbox on');
-    $('.navigation__button--next').removeAttr('disabled');
-  } else {
-    console.log('all options__checkbox off');
-    $('.navigation__button--next').attr('disabled', 'disabled');
   }
 });
 

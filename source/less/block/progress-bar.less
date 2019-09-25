@@ -89,17 +89,23 @@
 @media (min-width: @laptop-s) {
   .progress-bar--in-content {
     position: absolute;
-    bottom: 20px;
+    bottom: 21px;
     left: 25px;
     width: 400px;
   }
 
   .progress-bar__text {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
   }
 }
 
 @media (min-width: @laptop-l) {
+  .progress-bar--in-content {
+    bottom: 33px;
+  }
+}
+
+@media (min-width: @desktop) {
   .progress-bar--in-content {
     bottom: 44px;
     left: 50px;

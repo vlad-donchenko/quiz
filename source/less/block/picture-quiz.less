@@ -1,5 +1,95 @@
 @import "../global/variables";
 
-.picture-quiz  .options__content {
+.picture-quiz .slick-list,
+.picture-quiz .slick-track {
+  display: flex;
+}
 
+.picture-quiz .slick-slide,
+.picture-quiz .slick-slide > div {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+
+.picture-quiz__item {
+  display: flex !important;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.picture-quiz__item .input-wrap__content,
+.picture-quiz__item .input-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.picture-quiz {
+  position: relative;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.picture-quiz__arrow {
+  position: absolute;
+  top: 50%;
+  width: 51px;
+  height: 51px;
+  background-color: @white-color;
+  border-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(@black-color, 0.16);
+  transform: translateY(-50%);
+  transition: background-color @animation-time @animation-timing-function;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.picture-quiz__arrow svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.picture-quiz__arrow--prev {
+  left: 10px;
+}
+
+.picture-quiz__arrow--next {
+  right: 10px;
+}
+
+.picture-quiz__arrow.slick-disabled {
+  display: none !important;
+}
+
+@media (min-width: @tablet-large) {
+  .picture-quiz__arrow--next {
+    right: 10px;
+  }
+
+  .picture-quiz__arrow--prev {
+    left: 10px;
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .picture-quiz__arrow:hover {
+    background-color: #fbfbfb;
+  }
+}
+
+@media (min-width: @laptop-l) {
+  .picture-quiz__arrow--next {
+    right: 26px;
+  }
+
+  .picture-quiz__arrow--prev {
+    left: 26px;
+  }
 }
