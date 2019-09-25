@@ -121,7 +121,7 @@ quizSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
 
   if (nextSlide === slick.slideCount - 1) {
     console.log('Последний слайд');
-    calc =  calc - (calc / 100 * 5);
+    calc = calc - (calc / 100 * 5);
   }
 
   progressBarLine.css('width', calc + '%');
@@ -209,13 +209,13 @@ $('.input-wrap__radio').on('change', function () {
     $(this).closest('.slick-active').find('.input-wrap__content--text-field').removeClass('input-wrap__content--text-checked');
     $(this).closest('.slick-active').find('.input-wrap__content--text-field').val('');
 
-    setTimeout("quizSlider.slick('slickNext')", 800);
+    setTimeout("quizSlider.slick('slickNext')", 500);
   } else {
     addDisabled(mainSliderNext, 'button--glare');
   }
 });
 
-$(window).resize(function() {
+$(window).resize(function () {
   if ($(window).width() < 768) {
     if ($('.manager__text').height() > 20) {
       console.log($('.manager__text').height());
@@ -227,5 +227,28 @@ $(window).resize(function() {
     $('.manager__inner').removeClass('manager--show');
     $('.manager__toggle').hide();
   }
+});
+
+$('.navigation__button--next').on('click', function () {
+  if ($(this).hasClass('slick-disabled')) {
+    $('.slider-main').hide();
+    $('.quiz__change-content').hide();
+    $('.navigation').hide();
+    $('.quiz__inner__right').hide();
+    $('.calculate-send').show();
+    $('.quiz__inner__left').addClass('quiz__inner__left--last-step')
+  }
+});
+
+$('.button--present').on('click', function (evt) {
+  evt.preventDefault();
+  $('.bonus-modal').toggleClass('bonus-modal--show');
+});
+
+$(document).on('click', function(e) {
+  if (!$(e.target).closest(".bonus-modal").length) {
+    $('.bonus-modal').removeClass('bonus-modal--show');
+  }
+  e.stopPropagation();
 });
 

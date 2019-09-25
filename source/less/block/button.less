@@ -17,10 +17,6 @@
   &:focus {
     box-shadow: 0 0 0 5px rgba(@blue-darken-color, 0.7);
     outline: none;
-
-    &::before {
-      display: none;
-    }
   }
 }
 
@@ -73,6 +69,12 @@
   animation-duration: @animation-time + 1;
   animation-timing-function: @animation-timing-function;
   animation-iteration-count: infinite;
+}
+
+.button--submit {
+  margin-top: 40px;
+  width: 100%;
+  font-size: @base-font-size + 1px;
 }
 
 @keyframes glare {

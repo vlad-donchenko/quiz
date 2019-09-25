@@ -1,0 +1,55 @@
+@import "../global/variables";
+
+.bonus-modal {
+  position: relative;
+  line-height: 0;
+}
+
+.bonus-modal__info-block {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: 20px;
+  padding: 22px 34px;
+  background-color: @white-color;
+  border-radius: 5px;
+  z-index: 1;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    right: 22px;
+    border: 10px solid transparent;
+    border-top-color: @white-color;
+  }
+}
+
+.bonus-modal__info-block .present__item {
+  margin-bottom: 23px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.bonus-modal--show .bonus-modal__info-block {
+  display: block;
+}
+
+.bonus-modal--show {
+  z-index: 1;
+
+  &::before {
+    content: " ";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(@black-color, 0.5);
+    z-index: -1;
+    pointer-events: none;
+  }
+}

@@ -50,11 +50,45 @@
             </svg>
             Рассчитать стоимость
           </a>
-          <a href="#" class="button button--present" aria-label="Подарки">
-            <svg width="34" height="32">
-              <use xlink:href="#icon-present"></use>
-            </svg>
-          </a>
+          <div class="bonus-modal">
+            <a href="#" class="button button--present" aria-label="Подарки">
+              <svg width="34" height="32">
+                <use xlink:href="#icon-present"></use>
+              </svg>
+            </a>
+            <div class="bonus-modal__info-block">
+              <ul class="present">
+                <li class="present__item">
+                  <div class="present__banner" style="background-image: url('img/banner-1.png')">
+                    <p class="present__text">
+                      Хостинг на 1 год
+                      <br>
+                      бесплатно
+                    </p>
+                    <div class="present-status">
+                      <svg width="17" height="14">
+                        <use xlink:href="#icon-lock"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </li>
+                <li class="present__item">
+                  <div class="present__banner" style="background-image: url('img/banner-2.png')">
+                    <p class="present__text">
+                      Домен на 1 год
+                      <br>
+                      бесплатно
+                    </p>
+                    <div class="present-status">
+                      <svg width="17" height="14">
+                        <use xlink:href="#icon-lock"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
         <ul class="advantage">
           <li class="advantage__item">
@@ -124,10 +158,15 @@
           </p>
           <div class="progress-bar progress-bar--in-content">
             <p class="progress-bar__text">
-              Готово:
+              <span class="progress-bar__complete">
+                Готово:
+              </span>
               <span class="progress-bar__count">
                   0
                 </span>
+            </p>
+            <p class="progress-bar__last-step">
+              Последний шаг!
             </p>
             <div class="progress-bar__line">
               <div class="progress-bar__indicator"></div>
@@ -195,7 +234,8 @@
               <ul class="options">
                 <li class="options__item">
                   <div class="input-wrap">
-                    <input type="checkbox" name="what-site-1" class="visually-hidden input-wrap__checkbox" value="selling-1" id="selling-1">
+                    <input type="checkbox" name="what-site-1" class="visually-hidden input-wrap__checkbox"
+                           value="selling-1" id="selling-1">
                     <label for="selling-1" class="input-wrap__content input-wrap__content--checkbox">
                       Продающий
                     </label>
@@ -203,7 +243,8 @@
                 </li>
                 <li class="options__item">
                   <div class="input-wrap">
-                    <input type="checkbox" name="what-site-1" class="visually-hidden input-wrap__checkbox" value="selling-2" id="selling-2">
+                    <input type="checkbox" name="what-site-1" class="visually-hidden input-wrap__checkbox"
+                           value="selling-2" id="selling-2">
                     <label for="selling-2" class="input-wrap__content input-wrap__content--checkbox">
                       Продающий
                     </label>
@@ -215,7 +256,8 @@
               <ul class="options">
                 <li class="options__item">
                   <div class="input-wrap">
-                    <input type="checkbox" name="what-site-2" class="visually-hidden input-wrap__checkbox" value="selling-3" id="selling-3">
+                    <input type="checkbox" name="what-site-2" class="visually-hidden input-wrap__checkbox"
+                           value="selling-3" id="selling-3">
                     <label for="selling-3" class="input-wrap__content input-wrap__content--checkbox">
                       Продающий
                     </label>
@@ -223,7 +265,8 @@
                 </li>
                 <li class="options__item">
                   <div class="input-wrap">
-                    <input type="checkbox" name="what-site-2" class="visually-hidden input-wrap__checkbox" value="selling-4" id="selling-4">
+                    <input type="checkbox" name="what-site-2" class="visually-hidden input-wrap__checkbox"
+                           value="selling-4" id="selling-4">
                     <label for="selling-4" class="input-wrap__content input-wrap__content--checkbox">
                       Продающий
                     </label>
@@ -231,13 +274,15 @@
                 </li>
                 <li class="options__item">
                   <div class="input-wrap input-wrap--text-field">
-                    <input type="checkbox" name="what-site-2" class="visually-hidden input-wrap__input input-wrap__checkbox" id="selling-5" disabled>
+                    <input type="checkbox" name="what-site-2"
+                           class="visually-hidden input-wrap__input input-wrap__checkbox" id="selling-5" disabled>
                     <label for="selling-5" class="input-wrap__content input-wrap__content--checkbox">
                       <span class="visually-hidden">
                         Продающий
                       </span>
                     </label>
-                    <input type="text" name="what-site-2" id="selling-text-1" class="input-wrap__content input-wrap__content--text-field" placeholder="Другое...">
+                    <input type="text" name="what-site-2" id="selling-text-1"
+                           class="input-wrap__content input-wrap__content--text-field" placeholder="Другое...">
                     <label for="selling-text-1" class="visually-hidden">
                       Другое
                     </label>
@@ -249,7 +294,8 @@
               <div class="picture-quiz picture-quiz--checkbox">
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="checkbox" name="picture-1" class="visually-hidden input-wrap__checkbox" value="picture-1" id="picture-1">
+                    <input type="checkbox" name="picture-1" class="visually-hidden input-wrap__checkbox"
+                           value="picture-1" id="picture-1">
                     <label for="picture-1" class="input-wrap__content input-wrap__content--checkbox">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -260,10 +306,11 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="checkbox" name="picture-2" class="visually-hidden input-wrap__checkbox" value="picture-2" id="picture-2">
+                    <input type="checkbox" name="picture-2" class="visually-hidden input-wrap__checkbox"
+                           value="picture-2" id="picture-2">
                     <label for="picture-2" class="input-wrap__content input-wrap__content--checkbox">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
-                        <span>
+                      <span>
                           Продающий
                         </span>
                     </label>
@@ -271,7 +318,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="checkbox" name="picture-3" class="visually-hidden input-wrap__checkbox" value="picture-2" id="picture-3">
+                    <input type="checkbox" name="picture-3" class="visually-hidden input-wrap__checkbox"
+                           value="picture-2" id="picture-3">
                     <label for="picture-3" class="input-wrap__content input-wrap__content--checkbox">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -282,7 +330,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="checkbox" name="picture-4" class="visually-hidden input-wrap__checkbox" value="picture-2" id="picture-4">
+                    <input type="checkbox" name="picture-4" class="visually-hidden input-wrap__checkbox"
+                           value="picture-2" id="picture-4">
                     <label for="picture-4" class="input-wrap__content input-wrap__content--checkbox">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -294,7 +343,8 @@
                 <!--Next sliders-->
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="checkbox" name="picture-1" class="visually-hidden input-wrap__checkbox" value="picture-1" id="picture-5">
+                    <input type="checkbox" name="picture-1" class="visually-hidden input-wrap__checkbox"
+                           value="picture-1" id="picture-5">
                     <label for="picture-5" class="input-wrap__content input-wrap__content--checkbox">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -305,7 +355,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="checkbox" name="picture-2" class="visually-hidden input-wrap__checkbox" value="picture-2" id="picture-6">
+                    <input type="checkbox" name="picture-2" class="visually-hidden input-wrap__checkbox"
+                           value="picture-2" id="picture-6">
                     <label for="picture-6" class="input-wrap__content input-wrap__content--checkbox">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -316,7 +367,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="checkbox" name="picture-3" class="visually-hidden input-wrap__checkbox" value="picture-2" id="picture-7">
+                    <input type="checkbox" name="picture-3" class="visually-hidden input-wrap__checkbox"
+                           value="picture-2" id="picture-7">
                     <label for="picture-7" class="input-wrap__content input-wrap__content--checkbox">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -327,7 +379,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="checkbox" name="picture-4" class="visually-hidden input-wrap__checkbox" value="picture-2" id="picture-8">
+                    <input type="checkbox" name="picture-4" class="visually-hidden input-wrap__checkbox"
+                           value="picture-2" id="picture-8">
                     <label for="picture-8" class="input-wrap__content input-wrap__content--checkbox">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -352,7 +405,8 @@
               <ul class="options">
                 <li class="options__item">
                   <div class="input-wrap">
-                    <input type="radio" name="what-site-2" class="visually-hidden input-wrap__radio" value="selling-10" id="selling-10">
+                    <input type="radio" name="what-site-2" class="visually-hidden input-wrap__radio" value="selling-10"
+                           id="selling-10">
                     <label for="selling-10" class="input-wrap__content input-wrap__content--radio">
                       Продающий
                     </label>
@@ -360,7 +414,8 @@
                 </li>
                 <li class="options__item">
                   <div class="input-wrap">
-                    <input type="radio" name="what-site-2" class="visually-hidden input-wrap__radio" value="selling-4" id="selling-11">
+                    <input type="radio" name="what-site-2" class="visually-hidden input-wrap__radio" value="selling-4"
+                           id="selling-11">
                     <label for="selling-11" class="input-wrap__content input-wrap__content--radio">
                       Продающий
                     </label>
@@ -368,13 +423,15 @@
                 </li>
                 <li class="options__item">
                   <div class="input-wrap input-wrap--text-field">
-                    <input type="radio" name="what-site-2" class="visually-hidden input-wrap__input  input-wrap__radio" id="selling-12" disabled>
+                    <input type="radio" name="what-site-2" class="visually-hidden input-wrap__input  input-wrap__radio"
+                           id="selling-12" disabled>
                     <label for="selling-12" class="input-wrap__content input-wrap__content--radio">
                       <span class="visually-hidden">
                         Продающий
                       </span>
                     </label>
-                    <input type="text" name="what-site-2" id="selling-text-2" class="input-wrap__content input-wrap__content--text-field" placeholder="Другое...">
+                    <input type="text" name="what-site-2" id="selling-text-2"
+                           class="input-wrap__content input-wrap__content--text-field" placeholder="Другое...">
                     <label for="selling-text-2" class="visually-hidden">
                       Другое
                     </label>
@@ -387,7 +444,8 @@
               <div class="picture-quiz picture-quiz--radio">
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-1" id="picture-9">
+                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-1"
+                           id="picture-9">
                     <label for="picture-9" class="input-wrap__content input-wrap__content--radio">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -398,7 +456,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2" id="picture-10">
+                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2"
+                           id="picture-10">
                     <label for="picture-10" class="input-wrap__content input-wrap__content--radio">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -409,7 +468,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2" id="picture-11">
+                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2"
+                           id="picture-11">
                     <label for="picture-11" class="input-wrap__content input-wrap__content--radio">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -420,7 +480,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2" id="picture-12">
+                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2"
+                           id="picture-12">
                     <label for="picture-12" class="input-wrap__content input-wrap__content--radio">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -432,7 +493,8 @@
                 <!--Next sliders-->
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-1" id="picture-13">
+                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-1"
+                           id="picture-13">
                     <label for="picture-13" class="input-wrap__content input-wrap__content--radio">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -443,7 +505,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2" id="picture-14">
+                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2"
+                           id="picture-14">
                     <label for="picture-14" class="input-wrap__content input-wrap__content--radio">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -454,7 +517,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2" id="picture-15">
+                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2"
+                           id="picture-15">
                     <label for="picture-15" class="input-wrap__content input-wrap__content--radio">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -465,7 +529,8 @@
                 </div>
                 <div class="picture-quiz__item">
                   <div class="input-wrap input-wrap--picture">
-                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2" id="picture-16">
+                    <input type="radio" name="picture-radio" class="visually-hidden input-wrap__radio" value="picture-2"
+                           id="picture-16">
                     <label for="picture-16" class="input-wrap__content input-wrap__content--radio">
                       <img src="img/picture-slider-1.jpg" width="225" height="220" alt="Информационный">
                       <span>
@@ -490,7 +555,8 @@
               <ul class="options">
                 <li class="options__item">
                   <div class="input-wrap">
-                    <input type="checkbox" name="what-site-last-1" class="visually-hidden input-wrap__checkbox" value="selling-3" id="selling-20">
+                    <input type="checkbox" name="what-site-last-1" class="visually-hidden input-wrap__checkbox"
+                           value="selling-3" id="selling-20">
                     <label for="selling-20" class="input-wrap__content input-wrap__content--checkbox">
                       Продающий
                     </label>
@@ -498,7 +564,8 @@
                 </li>
                 <li class="options__item">
                   <div class="input-wrap">
-                    <input type="checkbox" name="what-site-last-2" class="visually-hidden input-wrap__checkbox" value="selling-4" id="selling-21">
+                    <input type="checkbox" name="what-site-last-2" class="visually-hidden input-wrap__checkbox"
+                           value="selling-4" id="selling-21">
                     <label for="selling-21" class="input-wrap__content input-wrap__content--checkbox">
                       Продающий
                     </label>
@@ -507,10 +574,108 @@
               </ul>
             </div>
           </div>
-          <div class="calculate-send" style="display: none">
-            <p>
-              1
-            </p>
+          <div class="calculate-send">
+            <div class="calculate-send__left">
+              <p class="calculate-send__bonus">
+                Ваши бонусы
+                <svg width="20" height="19">
+                  <use xlink:href="#icon-present-small"></use>
+                </svg>
+              </p>
+              <ul class="present">
+                <li class="present__item">
+                  <div class="present__banner" style="background-image: url('img/banner-1.png')">
+                    <p class="present__text">
+                      Хостинг на 1 год
+                      <br>
+                      бесплатно
+                    </p>
+                    <div class="present-status">
+                      <svg width="17" height="14">
+                        <use xlink:href="#icon-un-lock"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </li>
+                <li class="present__item">
+                  <div class="present__banner" style="background-image: url('img/banner-2.png')">
+                    <p class="present__text">
+                      Домен на 1 год
+                      <br>
+                      бесплатно
+                    </p>
+                    <div class="present-status">
+                      <svg width="17" height="14">
+                        <use xlink:href="#icon-un-lock"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="calculate-send__description-wrap">
+              <p class="calculate-send__description">
+                Оставьте свои контакты и мы вышлем ориентировочно цену и сроки разработки сайта.
+              </p>
+            </div>
+            <div class="get-results get-results--standard">
+              <div class="get-results__wrap">
+                <p class="get-results__text">
+                  Куда прислать результаты?
+                </p>
+                <ul class="get-results__list">
+                  <li class="get-results__item">
+                    <input type="text" name="get-results-name" class="get-results__input" placeholder="Имя*"
+                           id="get-results-name" required>
+                    <label for="get-results-name" class="get-results__label">
+                    <span class="visually-hidden">
+                      Имя
+                    </span>
+                      <svg width="15" height="15">
+                        <use xlink:href="#icon-get-results-user"></use>
+                      </svg>
+                    </label>
+                  </li>
+                  <li class="get-results__item">
+                    <input type="email" name="get-results-mail" class="get-results__input" placeholder="Email*"
+                           id="get-results-mail" required>
+                    <label for="get-results-name" class="get-results__label">
+                    <span class="visually-hidden">
+                      Email
+                    </span>
+                      <svg width="15" height="10">
+                        <use xlink:href="#icon-get-results-mail"></use>
+                      </svg>
+                    </label>
+                  </li>
+                  <li class="get-results__item">
+                    <input type="tel" name="get-results-phone" class="get-results__input" placeholder="Телефон*"
+                           id="get-results-phone" required>
+                    <label for="get-results-name" class="get-results__label">
+                    <span class="visually-hidden">
+                      Телефон
+                    </span>
+                      <svg width="15" height="15">
+                        <use xlink:href="#icon-get-results-phone"></use>
+                      </svg>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <div class="get-results__privacy-policy">
+                <input type="checkbox" id="privacy-policy-standard" class="visually-hidden">
+                <label for="privacy-policy-standard">
+                  C
+                  <a href="#" class="get-results__link">
+                    политикой конфиденциальности
+                  </a>
+                  ознакомлен
+                </label>
+              </div>
+              <button type="submit" class="button button--submit">
+                Отправить
+              </button>
+            </div>
           </div>
         </form>
       </div>
