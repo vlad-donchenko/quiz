@@ -154,7 +154,8 @@ var removeDisabled = function (buttonClass, animationName) {
 
 addDisabled(mainSliderNext, 'button--glare');
 
-quizSlider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+quizSlider.on('afterChange', function () {
+  $('.navigation__button--next').removeClass('button--no-event');
   if ($('.slider-main .slick-active input').is(':checked')) {
     $('.navigation__button--next').removeAttr('disabled');
     $('.navigation__button--next').addClass('button--glare');
@@ -206,6 +207,7 @@ $('.input-wrap__radio').on('change', function () {
     console.log('бУДЕТ ПЕРЕХОД АВТО');
     $('.navigation__button--next').removeAttr('disabled');
     $('.navigation__button--next').addClass('button--glare');
+    $('.navigation__button--next').addClass('button--no-event');
     $(this).closest('.slick-active').find('.input-wrap__content--text-field').removeClass('input-wrap__content--text-checked');
     $(this).closest('.slick-active').find('.input-wrap__content--text-field').val('');
 
@@ -229,6 +231,8 @@ $(window).resize(function () {
   }
 });
 
+$('.calculate-send').hide();
+
 $('.navigation__button--next').on('click', function () {
   if ($(this).hasClass('slick-disabled')) {
     $('.slider-main').hide();
@@ -245,10 +249,44 @@ $('.button--present').on('click', function (evt) {
   $('.bonus-modal').toggleClass('bonus-modal--show');
 });
 
-$(document).on('click', function(e) {
+$(document).on('click', function (e) {
   if (!$(e.target).closest(".bonus-modal").length) {
     $('.bonus-modal').removeClass('bonus-modal--show');
   }
   e.stopPropagation();
 });
 
+var onValidatePrivacyPolicy = function () {
+  if ($(this).is(':checked')) {
+    $('.social-option__radio').removeAttr('disabled');
+  } else {
+    $('.social-option__radio').attr('disabled', 'disabled');
+  }
+};
+
+var onOpenInput = function () {
+    console.log('hi');
+    console.log($(this).val());
+    for (var i = 0; i < imagesLinks.length; i++ ) {
+      var afterreplace = imagesLinks[i].replace('icon-option-', '');
+      console.log(afterreplace);
+
+      if (afterreplace.indexOf($(this).val()) !== -1) {
+        console.log('sa');
+        $('.user-date__icon use').attr('xlink:href', '#' + imagesLinks[i]);
+      }
+
+    }
+};
+
+$('#privacy-policy-standard').on('change', onValidatePrivacyPolicy);
+$('.social-option__radio').on('click', onOpenInput);
+
+$(function(){
+  $("#user-date-phone-number").phonecode({
+    preferCo: 'ua',
+    default_prefix: '380'
+  });
+});
+
+var imagesLinks = ['icon-option-phone', 'icon-option-viber', 'icon-option-telegram', 'icon-option-whatsapp', 'icon-option-instagram', 'icon-option-facebook'];

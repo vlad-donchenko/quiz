@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Iceberg</title>
+  <link rel="icon" href="img/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/favicon-180.png">
   <link rel="preload" href="fonts/segoeui.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="fonts/segoeui-semibold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
@@ -619,7 +621,7 @@
               </p>
             </div>
             <div class="get-results get-results--standard">
-              <div class="get-results__wrap">
+              <div class="get-results__wrap get-results__wrap--mail" style="display: none">
                 <p class="get-results__text">
                   Куда прислать результаты?
                 </p>
@@ -662,8 +664,88 @@
                   </li>
                 </ul>
               </div>
+              <div class="get-results__wrap get-results__wrap--social">
+                <p class="get-results__text">
+                  Куда прислать результаты?
+                </p>
+                <ul class="social-option">
+                  <li class="social-option__item">
+                    <input type="radio" name="social-option" value="phone" class="visually-hidden social-option__radio" id="social-option--phone">
+                    <label for="social-option--phone" class="social-option__label">
+                      <svg width="21" height="21">
+                        <use xlink:href="#icon-option-phone"></use>
+                      </svg>
+                      По телефону
+                    </label>
+                  </li>
+                  <li class="social-option__item">
+                    <input type="radio" name="social-option" value="viber" class="visually-hidden social-option__radio" id="social-option--viber">
+                    <label for="social-option--viber" class="social-option__label">
+                      <svg width="21" height="21">
+                        <use xlink:href="#icon-option-viber"></use>
+                      </svg>
+                      Viber
+                    </label>
+                  </li>
+                  <li class="social-option__item">
+                    <input type="radio" name="social-option" value="telegram" class="visually-hidden social-option__radio" id="social-option--telegram">
+                    <label for="social-option--telegram" class="social-option__label">
+                      <svg width="21" height="21">
+                        <use xlink:href="#icon-option-telegram"></use>
+                      </svg>
+                      Telegram
+                    </label>
+                  </li>
+                  <li class="social-option__item">
+                    <input type="radio" name="social-option" value="whatsapp" class="visually-hidden social-option__radio" id="social-option--whatsapp">
+                    <label for="social-option--whatsapp" class="social-option__label">
+                      <svg width="21" height="21">
+                        <use xlink:href="#icon-option-whatsapp"></use>
+                      </svg>
+                      WhatsApp
+                    </label>
+                  </li>
+                  <li class="social-option__item">
+                    <input type="radio" name="social-option" value="instagram" class="visually-hidden social-option__radio" id="social-option--instagram">
+                    <label for="social-option--instagram" class="social-option__label">
+                      <svg width="21" height="21">
+                        <use xlink:href="#icon-option-instagram"></use>
+                      </svg>
+                      Instagram
+                    </label>
+                  </li>
+                  <li class="social-option__item">
+                    <input type="radio" name="social-option" value="facebook" class="visually-hidden social-option__radio" id="social-option--facebook">
+                    <label for="social-option--facebook" class="social-option__label">
+                      <svg width="21" height="21">
+                        <use xlink:href="#icon-option-facebook"></use>
+                      </svg>
+                      Facebook
+                    </label>
+                  </li>
+                </ul>
+                <div class="user-date">
+                  <div class="user-date__icon">
+                    <svg width="40" height="40">
+                      <use xlink:href="#icon-option-phone"></use>
+                    </svg>
+                  </div>
+                  <div class="user-date__info-block user-date__info-block--number">
+                    <label for="user-date-phone-number" class="visually-hidden">
+                      Введите ваш номер
+                    </label>
+                    <input type="tel" name="user-date-phone" class="user-date__phone-input" id="user-date-phone-number" placeholder="Номер телефона">
+                  </div>
+                  <div class="user-date__info-block user-date__info-block--nickname">
+                    <label for="user-date-nickname" class="visually-hidden">
+                      Введите ваш логин
+                    </label>
+                    <input type="text" name="user-date-name" class="user-date__nick-input" id="user-date-nickname" placeholder="Логин">
+                  </div>
+                </div>
+              </div>
               <div class="get-results__privacy-policy">
-                <input type="checkbox" id="privacy-policy-standard" class="visually-hidden">
+                <input type="checkbox" id="privacy-policy-standard" class="visually-hidden" checked>
                 <label for="privacy-policy-standard">
                   C
                   <a href="#" class="get-results__link">

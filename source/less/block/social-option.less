@@ -1,0 +1,45 @@
+@import "../global/variables";
+
+.social-option {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin: 0 -8px 0 -8px;
+  list-style: none;
+}
+
+.social-option__item {
+  width: 50%;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 15px;
+
+  &:nth-last-child(1),
+  &:nth-last-child(2) {
+    margin-bottom: 0;
+  }
+}
+
+.social-option__label {
+  position: relative;
+  display: block;
+  padding: 10px 14px 10px 45px;
+  font-size: @base-font-size - 1px;
+  background-color: @gray-color;
+  border-radius: 5px;
+  transition: all @animation-time @animation-timing-function;
+}
+
+.social-option__label svg {
+  position: absolute;
+  top: 10px;
+  left: 13px;
+}
+
+.social-option__radio:checked + .social-option__label {
+  background: #ebedef;
+}
+
+.social-option__radio:disabled + .social-option__label {
+  opacity: 0.3;
+}

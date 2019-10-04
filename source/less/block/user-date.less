@@ -1,0 +1,50 @@
+@import "../global/variables";
+
+.user-date {
+  position: relative;
+}
+
+.user-date__icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.user-date__phone-input {
+  display: block;
+  width: 169px;
+  font-family: inherit;
+  font-size: @base-font-size - 1px;
+  height: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #e3e3e3;
+  border-left: none;
+
+  &:focus {
+    outline: none;
+    border-color: @blue-color;
+    border-left: 1px solid @blue-color;
+    padding-left: 14px;
+  }
+}
+
+.user-date__info-block {
+  max-width: 275px;
+  margin-left: auto;
+}
+
+.user-date__nick-input {
+  height: 40px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: inherit;
+  font-size: @base-font-size - 1px;
+  border: 1px solid #e3e3e3;
+
+  &:focus {
+    outline: none;
+    border-color: @blue-color;
+  }
+}

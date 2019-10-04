@@ -3,10 +3,23 @@
 .bonus-modal {
   position: relative;
   line-height: 0;
+
+  &::before {
+    content: " ";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(@black-color, 0.5);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity @animation-time @animation-timing-function;
+    pointer-events: none;
+  }
 }
 
 .bonus-modal__info-block {
-  display: none;
   position: absolute;
   right: 0;
   bottom: 100%;
@@ -14,7 +27,10 @@
   padding: 22px 34px;
   background-color: @white-color;
   border-radius: 5px;
-  z-index: 1;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity @animation-time @animation-timing-function;
+  pointer-events: none;
 
   &::before {
     content: " ";
@@ -35,21 +51,15 @@
 }
 
 .bonus-modal--show .bonus-modal__info-block {
-  display: block;
+  opacity: 1;
+  z-index: 1;
+  pointer-events: inherit;
 }
 
 .bonus-modal--show {
   z-index: 1;
 
   &::before {
-    content: " ";
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(@black-color, 0.5);
-    z-index: -1;
-    pointer-events: none;
+    opacity: 1;
   }
 }
