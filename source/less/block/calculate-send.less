@@ -14,7 +14,6 @@
 }
 
 .calculate-send {
-  display: none;
   padding: 0 25px 30px 25px;
 }
 
@@ -29,6 +28,10 @@
 
 .calculate-send .present__banner {
   width: 100%;
+}
+
+.calculate-send--hide {
+  display: none;
 }
 
 @media (min-width: @galaxy-phones) {
@@ -56,7 +59,7 @@
   .calculate-send .present__banner {
     display: flex;
     flex-direction: column;
-    padding: 7%;
+    padding: 11%;
   }
 
   .calculate-send .present__text {
@@ -96,12 +99,6 @@
     margin-right: auto;
   }
 
-  .calculate-send__description-wrap {
-    width: 100%;
-    margin-bottom: 59px;
-    order: -1;
-  }
-
   .calculate-send .present {
     display: block;
     width: 242px;
@@ -139,11 +136,17 @@
 
   .calculate-send__description {
     max-width: 645px;
+    width: 100%;
     margin-top: 0;
     margin-bottom: 0;
-    width: 100%;
     font-size: @base-font-size + 7px;
     line-height: @base-line-height;
+  }
+
+  .calculate-send__description-wrap {
+    width: 100%;
+    margin-bottom: 59px;
+    order: -1;
   }
 
   .calculate-send__left {
@@ -161,6 +164,14 @@
       transform: translateX(-50%) rotate(20deg);
     }
   }
+
+  .calculate-send--hide {
+    display: none;
+  }
+
+  .calculate-send--social-method .calculate-send__left::before {
+    bottom: 0;
+  }
 }
 
 @media (min-width: @desktop) {
@@ -171,6 +182,19 @@
 
   .calculate-send__bonus {
     margin-top: 40px;
+  }
+
+  .calculate-send__left::before {
+    top: 50%;
+    bottom: inherit;
+    left: 100%;
+    margin-left: 43px;
+    transform: translateY(-50%);
+  }
+
+  .calculate-send--social-method .calculate-send__left::before {
+    top: 150px;
+    transform: none;
   }
 }
 

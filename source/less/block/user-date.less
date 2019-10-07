@@ -2,17 +2,24 @@
 
 .user-date {
   position: relative;
+  display: none;
+  margin-top: 70px;
+}
+
+.user-date--open {
+  display: block;
 }
 
 .user-date__icon {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 50%;
+  top: -60px;
+  transform: translateX(-50%);
 }
 
 .user-date__phone-input {
   display: block;
-  width: 169px;
+  width: calc(100% - 105px);
   font-family: inherit;
   font-size: @base-font-size - 1px;
   height: 40px;
@@ -30,8 +37,7 @@
 }
 
 .user-date__info-block {
-  max-width: 275px;
-  margin-left: auto;
+  max-width: 100%;
 }
 
 .user-date__nick-input {
@@ -46,5 +52,27 @@
   &:focus {
     outline: none;
     border-color: @blue-color;
+  }
+}
+
+.user-date__info-block--hide {
+  display: none;
+}
+
+@media (min-width: @galaxy-between-iphone) {
+  .user-date__icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: none;
+  }
+
+  .user-date {
+    margin-top: 0;
+  }
+
+  .user-date__info-block {
+    max-width: calc(100% - 60px);
+    margin-left: auto;
   }
 }

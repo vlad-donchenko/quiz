@@ -76,9 +76,22 @@
 }
 
 .button--submit {
+  position: relative;
   margin-top: 40px;
   width: 100%;
   font-size: @base-font-size + 1px;
+}
+
+.button--submit svg {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  transform: translateY(-50%);
+}
+
+.button--submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
 }
 
 @keyframes glare {
@@ -88,6 +101,12 @@
 
   100% {
     left: calc(100% + 60px);
+  }
+}
+
+@media (min-width: @galaxy-phones) {
+  .button-calculate svg {
+    left: 20px;
   }
 }
 
@@ -103,6 +122,10 @@
 
   .button-calculate svg {
     left: 24px;
+  }
+
+  .button--submit svg {
+    left: 55px;
   }
 }
 

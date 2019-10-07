@@ -231,15 +231,13 @@ $(window).resize(function () {
   }
 });
 
-$('.calculate-send').hide();
-
 $('.navigation__button--next').on('click', function () {
   if ($(this).hasClass('slick-disabled')) {
     $('.slider-main').hide();
     $('.quiz__change-content').hide();
     $('.navigation').hide();
     $('.quiz__inner__right').hide();
-    $('.calculate-send').show();
+    $('.calculate-send').removeClass('calculate-send--hide');
     $('.quiz__inner__left').addClass('quiz__inner__left--last-step')
   }
 });
@@ -259,34 +257,88 @@ $(document).on('click', function (e) {
 var onValidatePrivacyPolicy = function () {
   if ($(this).is(':checked')) {
     $('.social-option__radio').removeAttr('disabled');
+    $('.get-results--standard .button--submit').removeAttr('disabled', 'disabled');
+    $('.get-results--standard .button--submit').addClass('button--glare');
   } else {
     $('.social-option__radio').attr('disabled', 'disabled');
+    $('.get-results--standard .button--submit').attr('disabled', 'disabled');
+    $('.get-results--standard .button--submit').removeClass('button--glare');
   }
 };
 
+var socialOption = $('.social-option');
+var userDate = $('.user-date');
+var getResultsSocial = $('.get-results--social');
+
+//user-date__info-block--number
+// user-date__info-block--nickname
+
 var onOpenInput = function () {
-    console.log('hi');
-    console.log($(this).val());
-    for (var i = 0; i < imagesLinks.length; i++ ) {
-      var afterreplace = imagesLinks[i].replace('icon-option-', '');
-      console.log(afterreplace);
+  for (var i = 0; i < imagesLinks.length; i++) {
+    var afterreplace = imagesLinks[i].replace('icon-option-', '');
+    if (afterreplace.indexOf($(this).val()) !== -1) {
+      $('.user-date__icon use').attr('xlink:href', '#' + imagesLinks[i]);
+      socialOption.addClass('social-option--hide');
+      userDate.addClass('user-date--open');
+      getResultsSocial.addClass('get-results--open');
 
-      if (afterreplace.indexOf($(this).val()) !== -1) {
-        console.log('sa');
-        $('.user-date__icon use').attr('xlink:href', '#' + imagesLinks[i]);
+
+      if ($(this).val() === 'facebook' || $(this).val() === 'instagram') {
+        $('.user-date__info-block--nickname').removeClass('user-date__info-block--hide');
+      } else {
+        $('.user-date__info-block--number').removeClass('user-date__info-block--hide');
       }
-
     }
+  }
 };
+
+$('.get-results--social .button--submit').attr('disabled', 'disabled');
+$('.get-results--social .button--submit').removeClass('button--glare');
+
+var oncheckSocialInput = function () {
+  if (!($(this).val())) {
+    $('.get-results--social .button--submit').attr('disabled', 'disabled');
+  } else {
+    $('.get-results--social .button--submit').removeAttr('disabled', 'disabled');
+    $('.get-results--social .button--submit').addClass('button--glare');
+  }
+};
+
+$('#user-date-phone-number').on('input', oncheckSocialInput);
+$('#user-date-nickname').on('input', oncheckSocialInput);
+
+var oncloseInput = function () {
+  getResultsSocial.removeClass('get-results--open');
+  socialOption.removeClass('social-option--hide');
+  userDate.removeClass('user-date--open');
+  $('.user-date__info-block--nickname').addClass('user-date__info-block--hide');
+  $('.user-date__info-block--number').addClass('user-date__info-block--hide');
+  $('#user-date-nickname').val('');
+  $('#user-date-phone-number').val('');
+  $('.get-results--social .button--submit').attr('disabled', 'disabled');
+  $('.get-results--social .button--submit').removeClass('button--glare');
+};
+
+$('.get-results__another--another-messenger a').on('click', oncloseInput);
 
 $('#privacy-policy-standard').on('change', onValidatePrivacyPolicy);
 $('.social-option__radio').on('click', onOpenInput);
 
-$(function(){
+$(function () {
   $("#user-date-phone-number").phonecode({
     preferCo: 'ua',
     default_prefix: '380'
   });
+});
+
+$(document).mouseup(function (e){
+  var div = $(".quiz__inner");
+  if (!div.is(e.target)
+    && div.has(e.target).length === 0) {
+    $('.quiz').removeClass('quiz--open');
+    $('.quiz').addClass('quiz--hidden');
+    $('body').removeClass('body--overflow');
+  }
 });
 
 var imagesLinks = ['icon-option-phone', 'icon-option-viber', 'icon-option-telegram', 'icon-option-whatsapp', 'icon-option-instagram', 'icon-option-facebook'];

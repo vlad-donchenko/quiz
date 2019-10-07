@@ -178,7 +178,8 @@
             <p class="quiz__headline">
               Какой Вам нужен сайт?
             </p>
-            <div class="manager">
+            <!--manager--online - Отвечает за статус при добавлении  manager--online - получаем зеленую точку возле менеджера -->
+            <div class="manager manager--online">
               <div class="manager__inner">
                 <div class="manager__img">
                   <picture>
@@ -188,7 +189,7 @@
                 </div>
                 <div class="manager__content">
                   <div class="manager__info">
-                    <p class="manager__name manager__name--online">
+                    <p class="manager__name">
                       Сергей
                     </p>
                     <p class="manager__position">
@@ -576,7 +577,8 @@
               </ul>
             </div>
           </div>
-          <div class="calculate-send">
+          <!--Если медод отправки соц сети добавить  calculate-send--social-method-->
+          <div class="calculate-send calculate-send--hide">
             <div class="calculate-send__left">
               <p class="calculate-send__bonus">
                 Ваши бонусы
@@ -620,15 +622,16 @@
                 Оставьте свои контакты и мы вышлем ориентировочно цену и сроки разработки сайта.
               </p>
             </div>
+            <!--Если нужно чтобы пользователь оставил контакты чрез стандартную форму в get-results добавить модификатор get-results--standard, если через соц. сети get-results--social. Когда один класс добавили второй убираем-->
             <div class="get-results get-results--standard">
-              <div class="get-results__wrap get-results__wrap--mail" style="display: none">
+              <div class="get-results__wrap get-results__wrap--mail">
                 <p class="get-results__text">
                   Куда прислать результаты?
                 </p>
                 <ul class="get-results__list">
                   <li class="get-results__item">
                     <input type="text" name="get-results-name" class="get-results__input" placeholder="Имя*"
-                           id="get-results-name" required>
+                           id="get-results-name">
                     <label for="get-results-name" class="get-results__label">
                     <span class="visually-hidden">
                       Имя
@@ -640,7 +643,7 @@
                   </li>
                   <li class="get-results__item">
                     <input type="email" name="get-results-mail" class="get-results__input" placeholder="Email*"
-                           id="get-results-mail" required>
+                           id="get-results-mail">
                     <label for="get-results-name" class="get-results__label">
                     <span class="visually-hidden">
                       Email
@@ -652,7 +655,7 @@
                   </li>
                   <li class="get-results__item">
                     <input type="tel" name="get-results-phone" class="get-results__input" placeholder="Телефон*"
-                           id="get-results-phone" required>
+                           id="get-results-phone">
                     <label for="get-results-name" class="get-results__label">
                     <span class="visually-hidden">
                       Телефон
@@ -730,13 +733,13 @@
                       <use xlink:href="#icon-option-phone"></use>
                     </svg>
                   </div>
-                  <div class="user-date__info-block user-date__info-block--number">
+                  <div class="user-date__info-block user-date__info-block--number user-date__info-block--hide">
                     <label for="user-date-phone-number" class="visually-hidden">
                       Введите ваш номер
                     </label>
                     <input type="tel" name="user-date-phone" class="user-date__phone-input" id="user-date-phone-number" placeholder="Номер телефона">
                   </div>
-                  <div class="user-date__info-block user-date__info-block--nickname">
+                  <div class="user-date__info-block user-date__info-block--nickname user-date__info-block--hide">
                     <label for="user-date-nickname" class="visually-hidden">
                       Введите ваш логин
                     </label>
@@ -754,9 +757,17 @@
                   ознакомлен
                 </label>
               </div>
-              <button type="submit" class="button button--submit">
-                Отправить
+              <button type="submit" class="button button--submit button--glare">
+                <svg width="21" height="21">
+                  <use xlink:href="#icon-checked-button"></use>
+                </svg>
+                Узнать стоимость
               </button>
+              <p class="get-results__another--another-messenger">
+                <a href="#">
+                  Выбрать другой мессенджер
+                </a>
+              </p>
             </div>
           </div>
         </form>

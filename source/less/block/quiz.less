@@ -39,7 +39,11 @@
 }
 
 .quiz--hidden {
-  display: none;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
 }
 
 .quiz--open {
@@ -187,12 +191,9 @@
 
 @media (min-width: @tablet-large) {
   .quiz {
-    animation: none;
     padding: 80px 50px;
     background-color: rgba(@black-color, 0.5);
-    animation-name: fadein;
-    animation-duration: @animation-time;
-    animation-timing-function: @animation-timing-function;
+    animation: none;
   }
 
   .quiz__close {
@@ -293,6 +294,10 @@
 
   .quiz__close:focus {
     opacity: 0.3;
+  }
+
+  .quiz__inner__left--last-step .progress-bar__count::before {
+    margin-left: -10px;
   }
 }
 
