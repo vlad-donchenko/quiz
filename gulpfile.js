@@ -95,10 +95,11 @@ gulp.task("js-minify", function () {
     "source/libs/slick/slick.min.js",
     "source/libs/countrymask/counties.js",
     "source/libs/countrymask/phonecode.js",
+    "source/libs/custonscroll/jquery.mCustomScrollbar.concat.min.js",
     "source/js/*.js"
   ])
     .pipe(concat("scripts.min.js"))
-    /*.pipe(jsmin())*/
+    .pipe(jsmin())
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });
