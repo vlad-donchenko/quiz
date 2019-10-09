@@ -1,0 +1,140 @@
+@import "../global/variables";
+
+.thank-you {
+  padding: 0 25px 34px 25px;
+}
+
+.thank-you--hidden {
+  display: none;
+}
+
+.thank-you__text svg {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px auto;
+}
+
+.thank-you__text {
+  margin-top: 0;
+  font-size: @base-font-size + 3px;
+  text-align: center;
+}
+
+.thank-you__bonus {
+  margin: 30px 0;
+  font-size: @base-font-size + 1px;
+  text-align: center;
+}
+
+.thank-you__bonus svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.thank-you__portfolio p {
+  max-width: 292px;
+  margin: 15px auto 0 auto;
+  font-size: @base-font-size - 1px;
+  color: @dark-gray-color;
+  text-align: center;
+}
+
+.thank-you__video-block {
+  margin-top: 30px;
+}
+
+.thank-you__video-link {
+  position: relative;
+  display: block;
+  line-height: 0;
+  margin-bottom: 30px;
+
+  &::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(@black-color, 0.3);
+  }
+}
+
+.thank-you__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  &:focus {
+    outline: none;
+    opacity: 0.3;
+  }
+}
+
+.thank-you__video-link img {
+  width: 100%;
+}
+
+@media (min-width: @tablet) {
+  .thank-you__portfolio {
+    max-width: 335px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .thank-you {
+    display: flex;
+    padding: 0;
+  }
+
+  .thank-you--hidden {
+    display: none;
+  }
+
+  .thank-you--info-block {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .thank-you__text {
+    font-size: @base-font-size + 7px;
+  }
+
+  .thank-you__video-block {
+    margin-top: 0;
+  }
+
+  .thank-you__left {
+    padding: 100px 50px;
+  }
+
+  .thank-you__right {
+    max-width: 300px;
+    padding: 100px 25px;
+    margin-left: auto;
+    background-color: @gray-color;
+  }
+
+  .thank-you__left {
+    max-width: calc(100% - 300px);
+  }
+}
+
+@media (min-width: @laptop-s) {
+  .thank-you__right {
+    max-width: 455px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .thank-you__left {
+    width: calc(100% - 455px);
+  }
+}

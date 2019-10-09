@@ -9,7 +9,6 @@
 .present__banner {
   position: relative;
   width: 228px;
-  min-height: 80px;
   padding: 18px 17px 17px 88px;
   border-radius: 5px;
   background-size: cover;
@@ -63,4 +62,71 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.present--thank-you .present__banner {
+  width: 100%;
+}
+
+@media (min-width: @galaxy-phones) {
+  .present--thank-you {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+
+  .present--thank-you .present__banner {
+    width: 100%;
+    padding: 11px 11%;
+  }
+
+  .present--thank-you .present__item {
+    width: 50%;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: @galaxy-phones) {
+  .present--thank-you .present__text {
+    font-size: @base-font-size - 3px;
+    line-height: normal;
+  }
+}
+
+@media (min-width: @horizontal-phone) {
+  .present--thank-you .present__text {
+    font-size: @base-font-size + 1px;
+  }
+
+  .present--thank-you .present__banner {
+    padding: 10%;
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .present--thank-you .present__text {
+    font-size: @base-font-size - 1px;
+  }
+
+  .present--thank-you .present__banner {
+    width: 228px;
+    padding: 18px 17px 17px 88px;
+  }
+
+  .present--thank-you .present__item {
+    padding: 0;
+    width: auto;
+    margin-right: 31px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .present--thank-you {
+    margin: 0;
+  }
 }

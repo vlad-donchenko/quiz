@@ -94,6 +94,18 @@
   opacity: 0.3;
 }
 
+.button--portfolio svg {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+}
+
+.button--portfolio {
+  width: 100%;
+  padding-right: 42px;
+  padding-left: 42px;
+}
+
 @keyframes glare {
   0% {
     left: 0;
@@ -126,6 +138,17 @@
 
   .button--submit svg {
     left: 55px;
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .button--portfolio {
+    padding-right: 40px;
+    padding-left: 20px;
+  }
+
+  .button--portfolio svg {
+    right: 15px;
   }
 }
 

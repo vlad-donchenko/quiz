@@ -7,6 +7,15 @@
   border-radius: 0 5px 5px 25px;
 }
 
+.manager .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 6px;
+  background-color: @dark-gray-color;
+}
+
+.manager .mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #e3e3e3;
+}
+
 .manager__inner {
   display: flex;
   overflow: hidden;
@@ -205,11 +214,13 @@
 
   .manager__text {
     position: relative;
+    height: 100px;
     width: 100%;
-    padding: 15px 7px;
+    padding: 15px 7px 15px 7px;
     background-color: @white-color;
     box-shadow: 0 3px 6px rgba(@black-color, 0.16);
     border-radius: 5px;
+    overflow-y: auto;
 
     &::before,
     &::after {
@@ -271,6 +282,6 @@
 
   .manager__text {
     margin-top: 8px;
-    padding: 18px 20px;
+    padding: 18px 5px 18px 18px;
   }
 }

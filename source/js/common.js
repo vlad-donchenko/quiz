@@ -4,7 +4,10 @@ var progressBarLine = $('.progress-bar__indicator');
 var quizSlider = $('.slider-main');
 var pictureQuiz = $('.picture-quiz');
 var progressBarText = $('.progress-bar__count');
-
+var socialOption = $('.social-option');
+var userDate = $('.user-date');
+var getResultsSocial = $('.get-results--social');
+var imagesLinks = ['icon-option-phone', 'icon-option-viber', 'icon-option-telegram', 'icon-option-whatsapp', 'icon-option-instagram', 'icon-option-facebook'];
 $('.quiz').addClass('quiz--hidden');
 
 quizSlider.slick({
@@ -32,14 +35,21 @@ pictureQuiz.each(function () {
       nextArrow: $(this).parent().find('.picture-quiz__arrow--next'),
       responsive: [
         {
-          breakpoint: 1200,
+          breakpoint: 1700,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
           }
         },
         {
-          breakpoint: 992,
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          }
+        },
+        {
+          breakpoint: 991,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3
@@ -75,14 +85,21 @@ pictureQuiz.each(function () {
       nextArrow: $(this).parent().find('.picture-quiz__arrow--next'),
       responsive: [
         {
-          breakpoint: 1200,
+          breakpoint: 1700,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
           }
         },
         {
-          breakpoint: 992,
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          }
+        },
+        {
+          breakpoint: 991,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3
@@ -114,13 +131,13 @@ $('.button-calculate').on('click', function () {
   $('.quiz').addClass('quiz--open');
   $('body').addClass('body--overflow');
   quizSlider.resize();
+  quizSlider.slick('setPosition');
 });
 
 quizSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
   var calc = Math.floor(((nextSlide) / (slick.slideCount - 1)) * 100);
 
   if (nextSlide === slick.slideCount - 1) {
-    console.log('Последний слайд');
     calc = calc - (calc / 100 * 5);
   }
 
@@ -192,7 +209,17 @@ $('.input-wrap__content--text-field').on('input', function () {
 });
 
 $('.input-wrap__checkbox').on('change', function () {
-  if ($(this).closest('.slick-active').find('.input-wrap__checkbox').is(':checked')) {
+  if ($(this).closest('.slick-slide').find('.input-wrap__checkbox').is(':checked')) {
+    $('.navigation__button--next').removeAttr('disabled');
+    $('.navigation__button--next').addClass('button--glare');
+  } else {
+    $('.navigation__button--next').attr('disabled', 'disabled');
+    $('.navigation__button--next').removeClass('button--glare');
+  }
+});
+
+$('.input-wrap--picture .input-wrap__checkbox').on('change', function () {
+  if ($(this).closest('.picture-quiz--checkbox').find('.input-wrap__checkbox').is(':checked')) {
     $('.navigation__button--next').removeAttr('disabled');
     $('.navigation__button--next').addClass('button--glare');
   } else {
@@ -202,9 +229,7 @@ $('.input-wrap__checkbox').on('change', function () {
 });
 
 $('.input-wrap__radio').on('change', function () {
-  console.log('Radio was change');
   if ($(this).is(':checked')) {
-    console.log('бУДЕТ ПЕРЕХОД АВТО');
     $('.navigation__button--next').removeAttr('disabled');
     $('.navigation__button--next').addClass('button--glare');
     $('.navigation__button--next').addClass('button--no-event');
@@ -218,11 +243,15 @@ $('.input-wrap__radio').on('change', function () {
 });
 
 $(window).resize(function () {
+  if ($(window).width() > 990) {
+    $('.manager__text').mCustomScrollbar();
+  }
+
   if ($(window).width() < 768) {
     if ($('.manager__text').height() > 20) {
-      console.log($('.manager__text').height());
+      $('.manager__toggle').show();
       $('.manager__toggle').on('click', function () {
-        $('.manager').toggleClass('manager--show');
+        $(this).closest('.manager').toggleClass('manager--show');
       });
     }
   } else {
@@ -236,9 +265,9 @@ $('.navigation__button--next').on('click', function () {
     $('.slider-main').hide();
     $('.quiz__change-content').hide();
     $('.navigation').hide();
-    $('.quiz__inner__right').hide();
+    $('.quiz__right').addClass('quiz__right--hidden');
     $('.calculate-send').removeClass('calculate-send--hide');
-    $('.quiz__inner__left').addClass('quiz__inner__left--last-step')
+    $('.quiz__left').addClass('quiz__left--last-step')
   }
 });
 
@@ -266,13 +295,6 @@ var onValidatePrivacyPolicy = function () {
   }
 };
 
-var socialOption = $('.social-option');
-var userDate = $('.user-date');
-var getResultsSocial = $('.get-results--social');
-
-//user-date__info-block--number
-// user-date__info-block--nickname
-
 var onOpenInput = function () {
   for (var i = 0; i < imagesLinks.length; i++) {
     var afterreplace = imagesLinks[i].replace('icon-option-', '');
@@ -281,7 +303,6 @@ var onOpenInput = function () {
       socialOption.addClass('social-option--hide');
       userDate.addClass('user-date--open');
       getResultsSocial.addClass('get-results--open');
-
 
       if ($(this).val() === 'facebook' || $(this).val() === 'instagram') {
         $('.user-date__info-block--nickname').removeClass('user-date__info-block--hide');
@@ -340,5 +361,3 @@ $(document).mouseup(function (e){
     $('body').removeClass('body--overflow');
   }
 });
-
-var imagesLinks = ['icon-option-phone', 'icon-option-viber', 'icon-option-telegram', 'icon-option-whatsapp', 'icon-option-instagram', 'icon-option-facebook'];
