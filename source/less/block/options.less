@@ -21,6 +21,7 @@
   }
 
   .options__item {
+    display: flex;
     width: 49%;
     margin-bottom: 18px;
 
@@ -37,6 +38,7 @@
 @media (min-width: @tablet-large) {
   .options__item {
     max-width: 272px;
+    width: 100%;
     margin-bottom: 20px;
   }
 }
@@ -62,6 +64,13 @@
 }
 
 @media (min-width: @laptop-l) {
+  .options__item {
+    max-width: 241px;
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: @desktop) {
   .options__item {
     max-width: 325px;
     margin-right: 30px;

@@ -7,6 +7,10 @@
   border-top: 1px solid #e3e3e3;
 }
 
+.navigation__call-modal {
+  display: none;
+}
+
 .navigation__buttons {
   display: flex;
   justify-content: space-between;
@@ -46,9 +50,15 @@
   opacity: 0.3;
 }
 
+.navigation__button--prev[aria-disabled="true"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
 @media (max-width: 767px) {
   .navigation {
     position: fixed;
+    height: 62px;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -100,6 +110,7 @@
   .navigation {
     position: absolute;
     bottom: 0;
+    left: 0;
     margin-top: 0;
     padding-right: 25px;
     padding-left: 25px;

@@ -1,12 +1,19 @@
 @import "../global/variables";
 
+.quiz {
+  display: none;
+}
+
 .quiz__inner {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
-  padding-bottom: 135px;
+  padding-bottom: 80px;
   background-color: @white-color;
-  overflow-y: auto;
+}
+
+.quiz__inner--last-step {
+  padding-bottom: 0;
 }
 
 .quiz__promo {
@@ -40,25 +47,19 @@
   flex: 1 0 auto;
 }
 
-.quiz--hidden {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-}
-
 .quiz--open {
   position: fixed;
   top: 0;
   left: 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
   min-width: 320px;
   width: 100%;
   height: 100%;
   background-color: @white-color;
   z-index: 10;
   overflow-y: auto;
+  overscroll-behavior: none;
   animation-name: bounce-in-top;
   animation-duration: @animation-time + 0.2s;
   animation-timing-function: @animation-timing-function;
@@ -75,6 +76,7 @@
   background-color: transparent;
   border: none;
   transition: opacity @animation-time @animation-timing-function;
+  z-index: 10;
 
   &::before,
   &::after {
@@ -176,10 +178,6 @@
 }
 
 @media (max-width: @tablet-large) {
-  .quiz__top {
-    margin-bottom: 60px;
-  }
-
   .quiz--open-thank .quiz__left {
     padding: 0;
   }
@@ -187,12 +185,19 @@
 
 @media (min-width: @tablet) {
   .quiz__inner {
+    min-height: 100%;
     padding-top: 50px;
+    padding-bottom: 0;
+  }
+
+  .quiz__inner--last-step {
+    padding-bottom: 20px;
   }
 
   .quiz__top {
     padding-left: 50px;
     padding-right: 50px;
+    margin-bottom: 60px;
   }
 
   .quiz__promo {
@@ -227,6 +232,7 @@
 
   .quiz--open {
     display: flex;
+    flex-direction: column;
   }
 
   .quiz__inner {

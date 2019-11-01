@@ -125,6 +125,12 @@
   transform: translateY(-50%) rotate(-180deg);
 }
 
+@media (max-width: @tablet) {
+  .manager--show .manager__text p{
+    padding-right: 20px;
+  }
+}
+
 @media (min-width: @tablet) {
   .manager__img {
     width: 80px;
@@ -174,7 +180,7 @@
     top: 34px;
     right: 20px;
     padding: 0;
-    max-width: 240px;
+    width: 240px;
     border-radius: 0;
     background-color: transparent;
     z-index: 3;
@@ -208,6 +214,30 @@
     width: 80px;
   }
 
+  .manager__decor {
+    position: relative;
+    order: -2;
+
+    &::before,
+    &::after {
+      content: " ";
+      position: absolute;
+      background: @white-color;
+      left: 37px;
+      top: 85px;
+      width: 16px;
+      height: 16px;
+      box-shadow: 0 3px 6px rgba(@black-color, 0.16);
+      z-index: -1;
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      z-index: 1;
+      box-shadow: none;
+    }
+  }
+
   .manager__content {
     width: 100%;
   }
@@ -221,25 +251,6 @@
     box-shadow: 0 3px 6px rgba(@black-color, 0.16);
     border-radius: 5px;
     overflow-y: auto;
-
-    &::before,
-    &::after {
-      content: " ";
-      position: absolute;
-      background: @white-color;
-      left: 37px;
-      top: -8px;
-      width: 16px;
-      height: 16px;
-      box-shadow: 0 3px 6px rgba(@black-color, 0.16);
-      z-index: -1;
-      transform: rotate(45deg);
-    }
-
-    &::before {
-      z-index: 1;
-      box-shadow: none;
-    }
   }
 
   .manager--online .manager__name::after {
@@ -268,7 +279,7 @@
   .manager {
     top: 100px;
     right: 51px;
-    max-width: 354px;
+    width: 354px;
   }
 
   .manager__info {

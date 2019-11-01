@@ -99,7 +99,7 @@ gulp.task("js-minify", function () {
     "source/js/*.js"
   ])
     .pipe(concat("scripts.min.js"))
-    .pipe(jsmin())
+    //.pipe(jsmin())
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });

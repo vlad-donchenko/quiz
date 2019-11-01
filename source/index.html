@@ -15,7 +15,7 @@
   <include src="build/img/sprite.svg"></include>
 </div>
 <div class="wrapper">
-  <section class="home">
+  <section class="home" style="background-image: url('img/main-background-desctop.jpg');">
     <div class="home__inner container">
       <div class="home__top">
         <div class="logo logo--home">
@@ -30,12 +30,24 @@
           <p class="contacts__text">
             Телефоны для консультации:
           </p>
-          <a href="tel:0674583320" class="contacts__link">
-            +38 (067) 458-33-20
-          </a>
-          <a href="#" class="contacts__call-back">
-            заказать звонок
-          </a>
+          <ul class="contacts__list">
+            <li>
+              <a href="tel:0674583320" class="contacts__link">
+                <svg width="18" height="18">
+                  <use xlink:href="#icon-contacts-list"></use>
+                </svg>
+                +38 (067) 458-33-20
+              </a>
+            </li>
+            <li>
+              <a href="tel:0674583320" class="contacts__link">
+                <svg width="18" height="18">
+                  <use xlink:href="#icon-contacts-list"></use>
+                </svg>
+                +38 (067) 458-33-20
+              </a>
+            </li>
+          </ul>
         </div>
         <div class="home__info-block">
           <h1 class="h1 h1--home">
@@ -111,21 +123,21 @@
           </p>
           <ul class="social__list">
             <li class="social__item">
-              <a href="#" class="social__link" aria-label="Viber">
+              <a href="#" class="social__link social__link--viber" aria-label="Viber">
                 <svg width="27" height="27">
                   <use xlink:href="#icon-viber"></use>
                 </svg>
               </a>
             </li>
             <li class="social__item">
-              <a href="#" class="social__link" aria-label="Telegram">
+              <a href="#" class="social__link social__link--telegram" aria-label="Telegram">
                 <svg width="29" height="26">
                   <use xlink:href="#icon-telegram"></use>
                 </svg>
               </a>
             </li>
             <li class="social__item">
-              <a href="#" class="social__link" aria-label="WhatsApp">
+              <a href="#" class="social__link social__link--whatsapp" aria-label="WhatsApp">
                 <svg width="27" height="27">
                   <use xlink:href="#icon-whatsapp"></use>
                 </svg>
@@ -137,6 +149,28 @@
                   <use xlink:href="#icon-phone"></use>
                 </svg>
               </a>
+              <div class="social__sub">
+                <p class="social__consultation">
+                  Телефоны для консультации:
+                </p>
+                <ul class="social__sub-list">
+                  <li>
+                    <a href="tel:0674583320">
+                      +38 (067) 458-33-20
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tel:0674583320">
+                      +38 (067) 458-33-20
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tel:0674583320">
+                      +38 (067) 458-33-20
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>
@@ -188,6 +222,7 @@
                     <img src="img/manager.jpg" width="44" height="44" alt="Сергей">
                   </picture>
                 </div>
+                <div class="manager__decor"></div>
                 <div class="manager__content">
                   <div class="manager__info">
                     <p class="manager__name">

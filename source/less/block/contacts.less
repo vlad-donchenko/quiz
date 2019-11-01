@@ -13,7 +13,23 @@
   font-size: @base-font-size - 1px;
 }
 
+.contacts__list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contacts__list li {
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .contacts__link {
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
   color: @white-color;
   font-weight: 600;
   text-decoration: none;
@@ -24,16 +40,10 @@
   }
 }
 
-.contacts__call-back {
-  margin-top: 6px;
-  color: @white-color;
-  font-size: @base-font-size;
-  text-decoration: underline;
-  transition: color @animation-time @animation-timing-function;
-
-  &:focus {
-    color: rgba(@white-color, 0.3);
-  }
+.contacts__link svg {
+  position: absolute;
+  top: 3px;
+  left: 0;
 }
 
 @media (min-width: @tablet) {
@@ -49,12 +59,10 @@
     order: -4;
   }
 
-  .contacts__call-back:hover,
   .contacts__link:hover {
     color: rgba(@white-color, 0.6);
   }
 
-  .contacts__call-back:hover,
   .contacts__link:focus {
     color: rgba(@white-color, 0.3);
   }
@@ -63,10 +71,5 @@
 @media (min-width: @desktop) {
   .contacts__text {
     margin-bottom: 10px;
-  }
-
-  .contacts__call-back {
-    margin-top: 9px;
-    font-size: @base-font-size - 1px;
   }
 }

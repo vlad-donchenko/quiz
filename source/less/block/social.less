@@ -20,10 +20,10 @@
   border-radius: 5px;
   background-color: rgba(@black-color, 0.35);
   text-decoration: none;
-  transition: opacity @animation-time @animation-timing-function;
+  transition: all @animation-time @animation-timing-function;
 
   &:focus {
-    opacity: 0.3;
+    opacity: 0.6;
   }
 }
 
@@ -54,20 +54,110 @@
     margin-right: 30px;
   }
 
-  .social__link:hover {
-    opacity: 0.6;
+  .social__link--viber:hover,
+  .social__link--viber:focus {
+    background-color: rgba(#a257ff, 0.35);
   }
 
-  .social__link:focus {
-    opacity: 0.3;
+  .social__link--telegram:hover,
+  .social__link--telegram:focus {
+    background-color: rgba(#6aadff, 0.35);
+  }
+
+  .social__link--whatsapp:hover,
+  .social__link--whatsapp:focus {
+    background-color: rgba(#24b708, 0.35);
   }
 }
 
-@media (min-width: @laptop-l) {
+.social__item--phone {
+  position: relative;
+}
+
+.social__sub {
+  position: absolute;
+  right: 0;
+  display: none;
+  bottom: 65px;
+  width: 245px;
+  padding: 31px 15px;
+  color: @black-color;
+  background-color: @white-color;
+  box-shadow: 0 3px 6px rgba(@black-color, 0.16);
+  border-radius: 5px;
+
+  &::before,
+  &::after {
+    content: " ";
+    position: absolute;
+    background: @white-color;
+    top: 100%;
+    margin-top: -9px;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 3px 6px rgba(@black-color, 0.16);
+    z-index: -1;
+    transform: rotate(45deg);
+  }
+
+  &::before {
+    z-index: 1;
+    box-shadow: none;
+  }
+}
+
+.social__sub-list {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.social__sub-list li {
+  text-align: center;
+}
+
+.social__sub-list a {
+  font-size: @base-font-size - 1px;
+  line-height: 24px;
+  color: @black-color;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.social__consultation {
+  margin: 0 0 13px 0;
+  line-height: 21px;
+  font-size: @base-font-size - 1px;
+  text-align: center;
+}
+
+.social__item--open-sub .social__sub {
+  display: block;
+}
+
+.social__item--open-sub::before {
+  content: " ";
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(@black-color, 0.45);
+  pointer-events: none;
+}
+
+@media (min-width: @tablet) {
   .social__item--phone {
     display: none;
   }
 
+  .social__item:nth-last-child(2) {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: @laptop-l) {
   .social__link {
     display: flex;
     align-items: center;
