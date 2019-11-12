@@ -164,8 +164,16 @@ $('.button-calculate').on('click', function () {
   $('body').addClass('body--overflow');
   quizSlider.resize();
   quizSlider.slick('setPosition');
+  pictureQuiz.slick('setPosition');
   hiddenMassage();
   managerTextClose();
+});
+
+console.log('sayHi');
+
+$(window).on('resize', function () {
+  quizSlider.slick('setPosition');
+  pictureQuiz.slick('setPosition');
 });
 
 quizSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
@@ -428,7 +436,7 @@ var phoneListButton = $('.social__item--phone .social__link');
 var phoneListWrapper = $('.social__item--phone');
 
 var onClosePhoneList = function (evt) {
-  if(!$(evt.target).closest('.social__item--phone').length) {
+  if (!$(evt.target).closest('.social__item--phone').length) {
     phoneListWrapper.removeClass('social__item--open-sub');
     $(document).off('click', onClosePhoneList);
   }
@@ -441,3 +449,9 @@ var onOpenPhoneList = function (evt) {
 };
 
 phoneListButton.on('click', onOpenPhoneList);
+
+$(document).ready(function () {
+  var slidersItems = $('.slider-main .slider-main__item');
+  $('.manager__text p').text($(slidersItems[0]).attr('data-comment'));
+  $('.quiz__headline').text($(slidersItems[0]).attr('data-title'));
+});
