@@ -1,3 +1,5 @@
+
+/*
 var mainSliderNext = $('.navigation__button--next');
 var mainSliderPrev = $('.navigation__button--prev');
 var progressBarLine = $('.progress-bar__indicator');
@@ -458,3 +460,4 @@ $(document).ready(function () {
   $('.manager__text p').text($(slidersItems[0]).attr('data-comment'));
   $('.quiz__headline').text($(slidersItems[0]).attr('data-title'));
 });
+*/
