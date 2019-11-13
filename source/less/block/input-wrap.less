@@ -143,11 +143,6 @@
   border-color: @blue-color;
 }
 
-.picture-quiz__item {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 .input-wrap--picture .input-wrap__content {
   position: relative;
   padding: 0;
@@ -162,7 +157,7 @@
 
 .input-wrap--picture span {
   display: block;
-  padding: 20px;
+  padding: 10px;
 }
 
 .input-wrap--picture .input-wrap__content::before {
@@ -185,6 +180,12 @@
   height: 19px;
   top: 25px;
   right: 25px;
+}
+
+@media (min-width: @horizontal-phone) {
+  .input-wrap--picture span {
+    padding: 20px;
+  }
 }
 
 @media (min-width: @tablet) {

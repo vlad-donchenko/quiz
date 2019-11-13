@@ -5,6 +5,12 @@
 }
 
 .quiz__inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding-top: 20px;
@@ -43,26 +49,12 @@
   font-size: @base-font-size + 3px;
 }
 
-.quiz__left {
-  flex: 1 0 auto;
-}
 
 .quiz--open {
-  position: fixed;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
-  min-width: 320px;
-  width: 100%;
-  height: 100%;
   background-color: @white-color;
   z-index: 10;
-  overflow-y: auto;
-  overscroll-behavior: none;
-  animation-name: bounce-in-top;
-  animation-duration: @animation-time + 0.2s;
-  animation-timing-function: @animation-timing-function;
 }
 
 .quiz__close {
@@ -231,6 +223,13 @@
   }
 
   .quiz--open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
   }
@@ -244,6 +243,7 @@
     position: relative;
     width: 100%;
     min-height: auto;
+    overflow: initial;
     max-width: 893px;
   }
 

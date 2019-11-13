@@ -148,8 +148,8 @@ pictureQuiz.each(function () {
         {
           breakpoint: 540,
           settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToShow: 2,
+            slidesToScroll: 2
           }
         }
       ]
@@ -169,11 +169,14 @@ $('.button-calculate').on('click', function () {
   managerTextClose();
 });
 
-console.log('sayHi');
+$(window).on('resize', function () {
+  quizSlider.slick('reinit');
+  pictureQuiz.slick('reinit');
+});
 
 $(window).on('resize', function () {
-  quizSlider.slick('setPosition');
-  pictureQuiz.slick('setPosition');
+  quizSlider.slick('reinit');
+  pictureQuiz.slick('reinit');
 });
 
 quizSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
