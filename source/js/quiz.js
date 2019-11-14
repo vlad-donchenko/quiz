@@ -4,13 +4,20 @@
   var ESC_KEY_CODE = 27;
   var PRECENT_CONVERSION = 100;
   //var PRECENT_REMOVE = 5;
+  var body = $('body');
   var quizButton = $('.button-calculate');
   var quizContent = $('.quiz');
   var quizClose = $('.quiz__close');
   var quizArrowNext = $('.navigation__button--next');
   var inputRadio = $('.input-wrap__radio');
   var inputCheckbox = $('.input-wrap__checkbox');
-  //var quizArrowPrev = $('.navigation__button--prev');
+  var inputText = $('.input-wrap__content--text-field');
+  var title = $('.quiz__change-content');
+  var navigationWrapper = $('.navigation');
+  var quizSidebar = $('.quiz__right');
+  var calculate = $('.calculate-send');
+  var quizLeft = $('.quiz__left');
+  var quizInner = $('.quiz__inner');
 
   var reinitializeMainSlider = function () {
     window.slider.sliderMain.slick('reinit');
@@ -22,6 +29,7 @@
 
   var closeQuiz = function () {
     quizContent.removeClass('quiz--open');
+    body.removeClass('body--overflow');
     $(document).off('keydown', onCloseQuizKeyPress);
     $(document).off('click', onCloseOutQuizClick);
     activateQuizNavigationNext();
@@ -42,6 +50,7 @@
   var openQuiz = function (evt) {
     evt.preventDefault();
     quizContent.addClass('quiz--open');
+    body.addClass('body--overflow');
     reinitializeMainSlider();
     reinitializePictureSlider();
     deActivateQuizNavigationNext();
@@ -77,39 +86,78 @@
   };
 
   var onActivateSlideRadioInputChange = function () {
-    if (inputRadio.is(':checked')) {
+    if ($(this).is(':checked')) {
+      var textInputs = $(this).closest('.form-main-group').find('.input-wrap__content--text-field');
+      if (textInputs) {
+        textInputs.each(function () {
+          $(this).removeClass('input-wrap__content--text-checked');
+          $(this).val('');
+        });
+      }
       autoSwitchingSlide();
     }
   };
 
-  var onActivateSlideCheckboxInputChange = function () {
-    var items = $(this).closest('.form-main-group').find('input:checked');
-
-    if (items.length > 0) {
+  var checkInputLength = function (elements) {
+    if (elements.length > 0) {
       activateQuizNavigationNext();
     } else {
       deActivateQuizNavigationNext();
     }
+  };
+
+  var activateSlideCheckboxInputChange = function (currentElement) {
+    var items = currentElement.closest('.form-main-group').find('input:checked');
+    checkInputLength(items);
   };
 
   var checkSelectedInput = function (event, slick, currentSlide) {
     var activeSlide = $(slick.$slides[currentSlide]);
     var checkedInput = activeSlide.find('input:checked');
+    checkInputLength(checkedInput);
+  };
 
-    if (checkedInput.length > 0) {  // Нужно взять в функцию
-      activateQuizNavigationNext();
+  var validateTextInput = function () {
+    var input = $(this).closest('.input-wrap--text-field').find('.input-wrap__input');
+
+    if ($(this).val().length > 0) {
+      input.prop('checked', true);
+      $(this).addClass('input-wrap__content--text-checked');
+      activateSlideCheckboxInputChange($(this));
     } else {
-      deActivateQuizNavigationNext();
+      input.prop('checked', false);
+      $(this).removeClass('input-wrap__content--text-checked');
+      activateSlideCheckboxInputChange($(this));
     }
+  };
+
+  var onShowResultsClick = function () {
+    window.slider.sliderMain.addClass('hidden');
+    title.addClass('hidden');
+    navigationWrapper.addClass('hidden');
+    quizSidebar.addClass('hidden');
+    calculate.removeClass('calculate-send--hide');
+    quizLeft.addClass('quiz__left--last-step');
+    quizInner.addClass('quiz__inner--last-step');
   };
 
   quizButton.on('click', openQuiz);
   inputRadio.on('change', onActivateSlideRadioInputChange);
-  inputCheckbox.on('change', onActivateSlideCheckboxInputChange);
+  inputCheckbox.on('change', function () {
+    activateSlideCheckboxInputChange($(this));
+  });
+
+  inputText.on('input', validateTextInput);
+
 
   window.slider.sliderMain.on('afterChange', function (event, slick, currentSlide) {
     getProgressStatus(event, slick, currentSlide);
     checkSelectedInput(event, slick, currentSlide);
+    if (currentSlide === slick.$slides.length - 1) {
+      quizArrowNext.on('click', onShowResultsClick);
+    } else {
+      quizArrowNext.off('click', onShowResultsClick);
+    }
   });
 
   window.slider.pictureSlider.on('afterChange', function () {
