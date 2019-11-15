@@ -164,4 +164,8 @@
     return false;
   });
 
+  window.quiz = {
+    ESC_KEY_CODE: ESC_KEY_CODE
+  }
+
 })();

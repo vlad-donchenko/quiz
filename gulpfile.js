@@ -96,6 +96,8 @@ gulp.task("js-minify", function () {
     "source/libs/countrymask/counties.js",
     "source/libs/countrymask/phonecode.js",
     "source/libs/custonscroll/jquery.mCustomScrollbar.concat.min.js",
+    "source/js/modal.js",
+    "source/js/user-form.js",
     "source/js/slider.js",
     "source/js/quiz.js"
   ])

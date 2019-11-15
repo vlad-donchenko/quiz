@@ -16,53 +16,63 @@
     nextArrow: $('.navigation__button--next'),
   });
 
-  pictureSlider.slick({
-    dots: false,
-    infinite: false,
-    swipe: true,
-    slidesToScroll: 4,
-    slidesToShow: 4,
-    speed: 700,
-    prevArrow: $(this).parent().find('.picture-quiz__arrow--prev'),
-    nextArrow: $(this).parent().find('.picture-quiz__arrow--next'),
-    responsive: [
-      {
-        breakpoint: 1700,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+  var getPictureSlider = function (slider) {
+    return slider.slick({
+      dots: false,
+      infinite: false,
+      swipe: true,
+      slidesToScroll: 4,
+      slidesToShow: 4,
+      speed: 500,
+      prevArrow: slider.closest('.slider-main__item').find('.picture-quiz__arrow--prev'),
+      nextArrow: slider.closest('.slider-main__item').find('.picture-quiz__arrow--next'),
+      responsive: [
+        {
+          breakpoint: 1700,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          }
+        },
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          }
+        },
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 540,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
         }
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        }
-      },
-      {
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 540,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  });
+      ]
+    });
+  };
+
+  var renderPictureSlider = function (slider) {
+    slider.each(function () {
+      getPictureSlider($(this));
+    });
+  };
+
+  renderPictureSlider(pictureSlider);
 
   window.slider = {
     sliderMain: sliderMain,
