@@ -1,9 +1,11 @@
 'use strict';
 
 (function () {
+  var PRECENT_REMOVE = 5;
   var ESC_KEY_CODE = 27;
   var PRECENT_CONVERSION = 100;
-  //var PRECENT_REMOVE = 5;
+  var HEIGHT_MANAGER_LINE = 20;
+  var WIDTH_TABLET =  990;
   var body = $('body');
   var quizButton = $('.button-calculate');
   var quizContent = $('.quiz');
@@ -18,6 +20,24 @@
   var calculate = $('.calculate-send');
   var quizLeft = $('.quiz__left');
   var quizInner = $('.quiz__inner');
+  var managerButton = $('.manager__toggle');
+  var managerText = $('.manager__text p');
+  var managerTextScroll = $('.manager__text');
+  var managerWrapper = $('.manager');
+
+  var openManagerText = function () {
+    managerWrapper.toggleClass('manager--show');
+  };
+
+  var onShowManagerBlockClick = function () {
+    if (managerText.outerHeight() > HEIGHT_MANAGER_LINE) {
+      openManagerText();
+    } else {
+      managerButton.off('click', onShowManagerBlockClick);
+    }
+  };
+
+  managerButton.on('click', onShowManagerBlockClick);
 
   var reinitializeMainSlider = function () {
     window.slider.sliderMain.slick('reinit');
@@ -76,6 +96,11 @@
     var progressBar = $('.progress-bar__indicator');
     var progressBarText = $('.progress-bar__count');
     var progress = Math.floor(((currentSlide) / (slick.slideCount - 1)) * PRECENT_CONVERSION);
+
+    if (currentSlide === slick.$slides.length - 1) {
+      progress = progress - PRECENT_REMOVE;
+    }
+
     progressBar.css('width',  progress + '%');
     progressBarText.text(progress);
   };
@@ -153,6 +178,7 @@
   window.slider.sliderMain.on('afterChange', function (event, slick, currentSlide) {
     getProgressStatus(event, slick, currentSlide);
     checkSelectedInput(event, slick, currentSlide);
+
     if (currentSlide === slick.$slides.length - 1) {
       quizArrowNext.on('click', onShowResultsClick);
     } else {
@@ -162,6 +188,30 @@
 
   window.slider.pictureSlider.on('afterChange', function () {
     return false;
+  });
+
+  var checkCustomScrollBar = function () {
+    if ($(window).width() > WIDTH_TABLET) {
+      managerTextScroll.mCustomScrollbar();
+    } else {
+      managerTextScroll.mCustomScrollbar('disable', true);
+    }
+  };
+
+  $(document).ready(function () {
+    checkCustomScrollBar();
+
+    $(window).on('resize', function () {
+      checkCustomScrollBar();
+      reinitializeMainSlider();
+      reinitializePictureSlider();
+    });
+
+    $(window).on('orientationchange', function () {
+      checkCustomScrollBar();
+      reinitializeMainSlider();
+      reinitializePictureSlider();
+    });
   });
 
   window.quiz = {
