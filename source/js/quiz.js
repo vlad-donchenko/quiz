@@ -174,7 +174,6 @@
 
   inputText.on('input', validateTextInput);
 
-
   window.slider.sliderMain.on('afterChange', function (event, slick, currentSlide) {
     getProgressStatus(event, slick, currentSlide);
     checkSelectedInput(event, slick, currentSlide);
