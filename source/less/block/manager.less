@@ -125,6 +125,10 @@
   transform: translateY(-50%) rotate(-180deg);
 }
 
+.manager__toggle--hidden {
+  display: none;
+}
+
 @media (max-width: @tablet) {
   .manager--show .manager__text p{
     padding-right: 20px;
@@ -272,6 +276,17 @@
 
   .manager__text p {
     font-size: @base-font-size - 2px;
+  }
+
+  .manager--hidden-massage .manager__text {
+    opacity: 0;
+  }
+
+  .manager--hidden-massage .manager__decor {
+    &::before,
+    &::after {
+      opacity: 0;
+    }
   }
 }
 

@@ -15,6 +15,8 @@
     INSTAGRAM: '#icon-option-instagram',
     FACEBOOK: '#icon-option-facebook'
   };
+  var mainForm = $('.quiz__main-form');
+  var lastScreen = $('.thank-you');
   var contactsNotice = $('.get-results');
   var privacyPolicyStandard = $('#privacy-policy-standard');
   var buttonSubmit = $('.button--submit');
@@ -147,11 +149,43 @@
 
     $(document).ready(function () {
       socialNumberInput.phonecode({
-        preferCo: 'ua',
-        default_prefix: '380'
+        preferCo: 'ru',
+        default_prefix: '+7'
       });
     });
+  } else {
+    var onStandardValidateMethodChange = function () {
+      if ($(this).is(':checked')) {
+        activateSubmitButton();
+      } else {
+        disabledSubmitButton();
+      }
+    };
+
+    privacyPolicyStandard.on('change', onStandardValidateMethodChange);
   }
+
+  mainForm.on('submit', function (evt) {
+    evt.preventDefault();
+    var url = mainForm.attr('action');
+    var type = mainForm.attr('method');
+    var data = mainForm.serialize();
+    $.ajax({
+      url: url,
+      method: type,
+      data: data,
+      success: function (data) {
+        if (data === 'ok') {
+          window.quiz.quizContent.addClass('quiz--open-thank');
+          lastScreen.removeClass('thank-you--hidden');
+          mainForm.trigger('reset');
+        }
+      },
+      error: function (data) {
+        console.error(data);
+      }
+    });
+  });
 
 })();
 
