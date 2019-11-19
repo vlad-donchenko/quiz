@@ -12,3 +12,82 @@
   padding-left: 14px;
   border: 1px solid #ff6547;
 }
+
+.error-hint--load {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  padding: 10px;
+  background-color: #ff6547;
+  border: none;
+  z-index: 999;
+}
+
+.error-hint__text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: @white-color;
+}
+
+.error-hint__close {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 35px;
+  height: 35px;
+  padding: 7px;
+  background-color: transparent;
+  border: none;
+  transform: translateY(-50%);
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:focus {
+    opacity: 0.3;
+    outline: none;
+  }
+
+  &::before,
+  &::after {
+    content: " ";
+    position: relative;
+    display: block;
+    height: 2px;
+    background-color: @white-color;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    top: -2px;
+    transform: rotate(-45deg);
+  }
+}
+
+@media (min-width: @tablet) {
+  .error-hint--load {
+    padding: 5px 15px;
+  }
+
+  .error-hint__text {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: @tablet-large) {
+  .error-hint--load {
+    padding: 10px;
+  }
+
+  .error-hint__text {
+    font-size: 24px;
+  }
+}
+

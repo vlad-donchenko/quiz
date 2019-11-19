@@ -26,6 +26,8 @@
   var managerTextScroll = $('.manager__text');
   var managerWrapper = $('.manager');
   var headline = $('.quiz__headline');
+  var mainSlides = window.slider.sliderMain.find('.slider-main__item');
+  var flag = true;
 
   var openManagerText = function () {
     managerWrapper.toggleClass('manager--show');
@@ -76,6 +78,11 @@
     deActivateQuizNavigationNext();
     changeUserContent(FIRST_SLIDE);
     checkManagerTextHeight();
+
+    if (flag) {
+      checkSelectedInputFirstSlide(mainSlides, FIRST_SLIDE);
+      flag = false;
+    }
 
     quizClose.on('click', function (evt) {
       evt.preventDefault();
@@ -135,13 +142,29 @@
 
   var activateSlideCheckboxInputChange = function (currentElement) {
     var items = currentElement.closest('.form-main-group').find('input:checked');
-    checkInputLength(items);
+    if (!currentElement.closest('.slider-main__item').hasClass('slider-main__item--required')) {
+      checkInputLength(items);
+    }
   };
 
-  var checkSelectedInput = function (event, slick, currentSlide) {
+  var  checkSelectedInputFirstSlide = function (slick, currentSlide) {
+    var activeSlide = $(slick[currentSlide]);
+    var checkedInput = activeSlide.find('input:checked');
+    if (activeSlide.hasClass('slider-main__item--required')) {
+      activateQuizNavigationNext();
+    } else {
+      checkInputLength(checkedInput);
+    }
+  };
+
+  var checkSelectedInput = function (slick, currentSlide) {
     var activeSlide = $(slick.$slides[currentSlide]);
     var checkedInput = activeSlide.find('input:checked');
-    checkInputLength(checkedInput);
+    if (activeSlide.find('.slider-main__item').hasClass('slider-main__item--required')) {
+      activateQuizNavigationNext();
+    } else {
+      checkInputLength(checkedInput);
+    }
   };
 
   var validateTextInput = function () {
@@ -216,7 +239,7 @@
 
   window.slider.sliderMain.on('afterChange', function (event, slick, currentSlide) {
     getProgressStatus(event, slick, currentSlide);
-    checkSelectedInput(event, slick, currentSlide);
+    checkSelectedInput(slick, currentSlide);
     changeUserContent(currentSlide);
     checkManagerTextHeight();
 
@@ -256,7 +279,7 @@
 
   window.quiz = {
     ESC_KEY_CODE: ESC_KEY_CODE,
-    quizContent: quizContent
+    quizContent: quizContent,
   }
 
 })();

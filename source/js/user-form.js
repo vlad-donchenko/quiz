@@ -15,6 +15,8 @@
     INSTAGRAM: '#icon-option-instagram',
     FACEBOOK: '#icon-option-facebook'
   };
+  var preloaderWrapper = $('.load');
+  var quizInner = $('.quiz__inner');
   var mainForm = $('.quiz__main-form');
   var lastScreen = $('.thank-you');
   var contactsNotice = $('.get-results');
@@ -165,24 +167,51 @@
     privacyPolicyStandard.on('change', onStandardValidateMethodChange);
   }
 
+  var onErrorLoad = function (data) {
+    var errorContent = $('<div class="error-hint error-hint--load"></div>');
+    errorContent.append($('<button type="button" class="error-hint__close"></button>'));
+    errorContent.append($('<p class="error-hint__text"></p>'));
+    quizInner.append(errorContent);
+    quizInner.addClass('quiz__inner--error');
+    $('.error-hint__text').text('Ошибка: ' + data);
+    var buttonClose = $('.error-hint__close');
+    buttonClose.on('click', function () {
+      $('.error-hint--load').remove();
+    });
+  };
+
+  var showPreloader = function () {
+    preloaderWrapper.addClass('load--open');
+  };
+
+  var closePreloader = function () {
+    preloaderWrapper.removeClass('load--open');
+  };
+
+
   mainForm.on('submit', function (evt) {
     evt.preventDefault();
-    var url = mainForm.attr('action');
-    var type = mainForm.attr('method');
-    var data = mainForm.serialize();
+    var urlAction = mainForm.attr('action');
+    var typeSend = mainForm.attr('method');
+    var dataForm = mainForm.serialize();
+    showPreloader();
+
     $.ajax({
-      url: url,
-      method: type,
-      data: data,
+      url: urlAction,
+      method: typeSend,
+      data: dataForm,
       success: function (data) {
+        console.log(data);
         if (data === 'ok') {
           window.quiz.quizContent.addClass('quiz--open-thank');
           lastScreen.removeClass('thank-you--hidden');
           mainForm.trigger('reset');
+          setTimeout(closePreloader, 1000);
         }
       },
-      error: function (data) {
-        console.error(data);
+      error: function (jqXhr) {
+        setTimeout(closePreloader, 1000);
+        onErrorLoad(jqXhr.status);
       }
     });
   });
